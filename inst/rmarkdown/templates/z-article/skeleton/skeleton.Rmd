@@ -1,0 +1,72 @@
+---
+title: "Title"
+subtitle: "Subtitle"
+author: Author name
+institution: My institution affiliation
+email: your.email@address.com
+thanks: A special thanks to person and people
+date: "`r format(Sys.time(), '%Y %m, %d')`"
+output: 
+  pdf_document: 
+    template: z-article-template.tex
+    citation_package: natbib #alternative biblatex
+    latex_engine: xelatex
+    keep_tex: true
+    toc: FALSE
+classoption:
+  - twocolumn # alterantive onecolumn
+bibliography: references.bib # add name of your bib file
+biblio-style: apsr  # only available if natbib is used
+abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra accumsan in nisl nisi scelerisque eu ultrices vitae. Dolor purus non enim praesent elementum facilisis leo vel fringilla. Ornare massa eget egestas purus viverra accumsan in. Diam maecenas sed enim ut sem viverra aliquet eget sit. Consequat mauris nunc congue nisi vitae suscipit. Tellus id interdum velit laoreet. In ornare quam viverra orci sagittis eu volutpat odio. Et malesuada fames ac turpis egestas. Vehicula ipsum a arcu cursus vitae. Accumsan lacus vel facilisis volutpat est velit egestas dui id. Senectus et netus et malesuada fames. Risus pretium quam vulputate dignissim suspendisse in est ante in. Magna sit amet purus gravida. Diam vulputate ut pharetra sit amet aliquam. Vel facilisis volutpat est velit. Ultricies mi eget mauris pharetra et ultrices neque. Sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus."
+fontsize: 12pt
+link-citations: true
+colorlinks: true
+citecolor: blue
+linkcolor: blue
+onehalfspacing: true
+#doublespacing: true
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(pollster)
+library(janitor)
+library(haven)
+library(kableExtra)
+
+```
+
+# Introduction
+
+
+
+# Background
+
+
+
+# Method
+
+
+
+# Results
+
+
+
+# Conclusion
+
+
+
+# References
+
+<div id="refs"></div>
+  
+# Appendix
+
+```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
+
+
+```
