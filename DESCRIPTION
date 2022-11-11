@@ -11,6 +11,7 @@ RoxygenNote: 7.2.1
 URL: https://github.com/isaiahespi/zealot
 BugReports: https://github.com/isaiahespi/zealot/issues
 Imports: 
+    rmarkdown,
     stringr
 Suggests: 
     testthat (>= 3.0.0)
