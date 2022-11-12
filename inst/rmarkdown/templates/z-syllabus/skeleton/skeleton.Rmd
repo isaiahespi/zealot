@@ -1,12 +1,33 @@
 ---
-title: "Template Title"
-author: "Your Name"
-date: "The Date"
-output: output_format
+title: "Course Title (course number)"
+term: "Season/year"
+author: "Name(s) of professor(s)"
+params:
+  start_date: `2023-01-03`
+  end_date: `2023-01-23`
+email: your.email@address.edu
+officehours: "\\shrug"
+office: "\\shrug"
+classroom: "\\shrug"
+classhours: "\\shrug"
+assistant: "\\shrug"
+output: 
+  zealot::zsyllabus:
+    keep_tex: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(lubridate)
+
+# firstday <- "2023-01-03"
+    
+# meetings <- ymd(firstday) + c(0:15) * weeks(1)
+# 
+# meeting_headers <- paste0("Week ", 1:16, ", ", months(meetings), " ", day(meetings))
+
+
 ```
 
 ## Adding an RMarkdown Template
