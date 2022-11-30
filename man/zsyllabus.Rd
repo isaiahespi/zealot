@@ -2,7 +2,7 @@
 % Please edit documentation in R/zsyllabus.R
 \name{zsyllabus}
 \alias{zsyllabus}
-\title{My syllabus template}
+\title{My Syllabus template}
 \usage{
 zsyllabus(...)
 }
@@ -10,10 +10,9 @@ zsyllabus(...)
 \item{...}{Arguments to \code{\link[rmarkdown:pdf_document]{rmarkdown::pdf_document}}.}
 }
 \description{
-My syllabus template
-}
-\details{
-#' # About YAML header fields\tabular{ll}{
+My description for this I guess
+
+#' # YAML header fields\tabular{ll}{
    FIELD \tab DESCRIPTION \cr
    \code{title} \tab Title of the class (course number) \cr
    \code{term} \tab Season/Year \cr

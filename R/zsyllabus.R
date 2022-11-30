@@ -1,8 +1,8 @@
-#' My syllabus template
+#' My Syllabus template
 #'
+#' @description My description for this I guess
 #'
-#'
-#'#' # About YAML header fields
+#'#' # YAML header fields
 #'
 #' | FIELD  | DESCRIPTION |
 #' | ------ | ----------- |
