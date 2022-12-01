@@ -432,7 +432,6 @@ $endif$
 
 \usepackage[english]{babel} % Language hyphenation and typographical rules
 
-\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
 \usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
 
 % Support for kableExtra package
@@ -478,15 +477,61 @@ $endif$
    \fancyfoot[C]{\small \thepage/\pageref*{LastPage}}
 }
 
+
+\usepackage{hyperref} % For hyperlinks in the PDF
+
+\makeatletter
+\@ifpackageloaded{hyperref}{}{%
+\ifxetex
+  \PassOptionsToPackage{hyphens}{url}\usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \PassOptionsToPackage{hyphens}{url}\usepackage[draft,unicode=true]{hyperref}
+\fi
+}
+
+\@ifpackageloaded{color}{
+    \PassOptionsToPackage{usenames,dvipsnames}{color}
+}{%
+    \usepackage[usenames,dvipsnames]{color}
+}
+\makeatother
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={$if(anonymous)$$else$$for(author)$$author.name$ ($author.affiliation$)$sep$ and $endfor$$endif$},
+             pdfkeywords = {$if(keywords)$$keywords$$endif$},
+            pdftitle={$title$$if(subtitle)$: $subtitle$$endif$},
+            colorlinks=true,
+            citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
+            urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
 \usepackage{titling} % Customizing the title section
+\setlength{\droptitle}{-4\baselineskip} % Move the title up
 
 \makeatother
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
 
 $if(title)$
 \title{$title$}
 $endif$
-
 $if(subtitle)$
+\providecommand{\subtitle}[1]{}
 \subtitle{$subtitle$}
 $endif$
 
@@ -530,7 +575,7 @@ $if(assistant)$
 $endif$
 
 $if(logo)$
-\logo{\includegraphics[width=6.68cm]{$logo$}}
+\logo{\includegraphics[width=6.68cm]{umd_logo.png}}
 $endif$
 
 $if(doublespacing)$
@@ -539,6 +584,8 @@ $if(onehalfspacing)$
 $else$
 $endif$
 $endif$
+
+%------------ Shrug-------------------------------------------------------------
 
 \usepackage{tikz}
 
@@ -557,109 +604,46 @@ $endif$
 \draw (-0.1,0.2) to [out=15,in=-100] (0.4,0.95);
 \end{tikzpicture}}
 
-
-\usepackage{hyperref} % For hyperlinks in the PDF
-
-\makeatletter
-\@ifpackageloaded{hyperref}{}{%
-\ifxetex
-  \PassOptionsToPackage{hyphens}{url}\usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \PassOptionsToPackage{hyphens}{url}\usepackage[draft,unicode=true]{hyperref}
-\fi
-}
-
-\@ifpackageloaded{color}{
-    \PassOptionsToPackage{usenames,dvipsnames}{color}
-}{%
-    \usepackage[usenames,dvipsnames]{color}
-}
-\makeatother
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={$if(anonymous)$$else$$for(author)$$author.name$ ($author.affiliation$)$sep$ and $endfor$$endif$},
-             pdfkeywords = {$if(keywords)$$keywords$$endif$},
-            pdftitle={$title$$if(subtitle)$: $subtitle$$endif$},
-            colorlinks=true,
-            citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
-            urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
-            linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-
-
-
-%----------------------------------------------------------------------------------------
-%	TITLE SECTION
-%----------------------------------------------------------------------------------------
-
-\pretitle{\begin{flushleft}\Huge\bfseries} % Article title formatting
-\noindent
-\logo{$logo$}
-\posttitle{\end{flushleft}} % Article title closing formatting
-
-\setlength{\droptitle}{-4\baselineskip} % Move the title up
-
-
-	\noindent \begin{tabular*}{\textwidth}{ @{\extracolsep{\fill}} lr @{\extracolsep{\fill}}}
-
-\title{
-\noindent
-\large\textbf{$title$}
-\subtitle{$subtitle$}
-\author{%
-\textsc{$author.name$}\\[1ex] % Your name
-\normalsize {$author.affiliation$} \\ % Your institution
-\date{$date$} % Leave empty to omit a date
-\normalsize \href{mailto:\email{$email$}}{$email$} % Your email address
-\officehours{$if(officehours)$$officehours$$else$TBD$endif$} \\
-\office{$if(office)$$office$$else$TBD$endif$} \\
-\classroom{$if(classroom)$$classroom$$else$TBD$endif$}\\
-\classhours{$if(classhours)$$classhours$$else$TBD$endif$} \\
-\assistant{$if(assistant)$$assistant$$else$TBD$endif$}\\
-	&  \\}
-
-
-%\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
-%\textsc{Jane Smith}\thanks{Corresponding author} \\[1ex] % Second author's name
-%\normalsize University of Utah \\ % Second author's institution
-%\normalsize \href{mailto:jane@smith.com}{jane@smith.com} % Second author's email address
-}
-	\hline
-	\end{tabular*}
-
-\vspace{2mm}
-
-
-%----------------------------------------------------------------------------------------
-
-
-
-
-\begin{document}
+%-------------------------------------------------------------------------------
 
 $for(include-before)$
 $include-before$
 $endfor$
 
-$if(title)$
-% Print the title
-\maketitle
-$endif$
+%-------------------------------------------------------------------------------
+
+\begin{document}
+
+
+\pretitle{\begin{flushleft}\Huge\bfseries} % Article title formatting
+\noindent\logo{$logo$}
+\posttitle{\end{flushleft}} % Article title closing formatting
+
+	$if(title)$
+	\maketitle
+	$endif$
 
 
 		\thispagestyle{firststyle}
 
 %	\thispagestyle{empty}
 
+	\noindent \begin{tabular*}{\textwidth}{ @{\extracolsep{\fill}} lr @{\extracolsep{\fill}}}
+
+Course Title: \title{\large\textbf{$title$}} & Course Number: \subtitle{$subtitle$} \\
+Term: \term{$term$}
+Instructor: \author{\textsc{$author.name$} & Email: \normalsize \href{\email{$email$}}{$email$} \\[1ex]
+\normalsize {$author.affiliation$} \\ % Your institution
+Course Dates: \date{$date$} \\
+Office: \office{$if(office)$$office$$else$TBD$endif$} & Office Hours: \officehours{$if(officehours)$$officehours$$else$TBD$endif$}\\
+Class Room: \classroom{$if(classroom)$$classroom$$else$TBD$endif$} & Class Hours: \classhours{$if(classhours)$$classhours$$else$TBD$endif$} \\
+\assistant{$if(assistant)$$assistant$$else$TBD$endif$}\\
+	&  \\
+	\hline
+	\end{tabular*}
 
 
-
-%----------------------------------------------------------------------------------------
-%	ARTICLE CONTENTS
-%----------------------------------------------------------------------------------------
+\vspace{2mm}
 
 % We'll put doublespacing here
 $if(doublespacing)$
@@ -668,6 +652,7 @@ $if(onehalfspacing)$
 \onehalfspacing
 $else$
 \singlespacing
+$endif$
 $endif$
 % Remember to cut it out later before bib
 

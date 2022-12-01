@@ -10,7 +10,7 @@ citecolor: blue
 title: "Course Title"
 subtitle: "(course number)"
 term: "season/year"
-author: "Professor(s)/Instructor(s) name"
+author: "Professor(s) name"
 date: "Start and end dates of the course"
 email: your.email@address.edu
 officehours: "\\shrug"
