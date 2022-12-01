@@ -3,10 +3,13 @@ output:
   zealot::zsyllabus:
 geometry: margin=1in
 fontsize: 11pt
+colorlinks: TRUE
 linkcolor: blue
 urlcolor: magenta
 citecolor: blue
-title: "Course Title (course number)"
+
+title: "Course Title"
+subtitle: "(course number)"
 term: "season/year"
 author: "Professor(s)/Instructor(s) name"
 date: "Start and end dates of the course"

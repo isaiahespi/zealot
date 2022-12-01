@@ -340,9 +340,11 @@ $endfor$
 \let\LanguageShortHands\languageshorthands
 \def\languageshorthands#1{}
 $endif$
+
 $for(header-includes)$
 $header-includes$
 $endfor$
+
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -411,34 +413,8 @@ $endif$
 $endif$
   pdfcreator={LaTeX via pandoc}}
 
-$if(title)$
-\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
-$endif$
-$if(subtitle)$
-$if(beamer)$
-$else$
-\usepackage{etoolbox}
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-}
-\makeatother
-$endif$
-\subtitle{$subtitle$}
-$endif$
-\author{$for(author)$$author$$sep$ \and $endfor$}
-\date{$date$}
-$if(beamer)$
-$if(institute)$
-\institute{$for(institute)$$institute$$sep$ \and $endfor$}
-$endif$
-$if(titlegraphic)$
-\titlegraphic{\includegraphics{$titlegraphic$}}
-$endif$
-$if(logo)$
-\logo{\includegraphics[width=6.68cm]{$logo$}}
-$endif$
-$endif$
+
+
 
 
 % EVERYTHING ABOVE THIS LINE IS THE DEFAULT PANDOC LaTeX TEMPLATE --------------
@@ -470,29 +446,9 @@ $endif$
 \usepackage{makecell}
 \usepackage{colortbl}
 
-\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
-
-% To use the structured authors in the example above, you would need a custom template:
-% This allows for author and affiliation in YAML
-$for(author)$
-$if(author.name)$
-$author.name$$if(author.affiliation)$ ($author.affiliation$)$endif$
-$else$
-$author$
-$endif$
-$endfor$
-
-$if(email)$
-\email{$email$}
-$endif$
-
 
 \usepackage{enumitem} % Customized lists
 \setlist[itemize]{noitemsep} % Make itemize lists more compact
-
-\usepackage{abstract} % Allows abstract customization
-\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
-\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
 
 
 \usepackage{titlesec} % Allows customization of titles
@@ -500,6 +456,7 @@ $endif$
 \renewcommand\thesubsection{\roman{subsection}} % roman numerals for subsections
 \titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
 \titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -509,7 +466,7 @@ $endif$
 
 \lhead{}
 \chead{}
-\rhead{\footnotesize $title$ -- $date$}
+\rhead{\footnotesize $subtitle$ -- $date$}
 \lfoot{}
 \cfoot{\small \thepage/\pageref*{LastPage}}
 \rfoot{}
@@ -526,7 +483,25 @@ $endif$
 \makeatother
 
 $if(title)$
-\title{$title$$if(subtitle)$: $subtitle$$endif$$if(anonymous)$$else$$if(thanks)$\thanks{$thanks$} $endif$$endif$ }
+\title{$title$}
+$endif$
+
+$if(subtitle)$
+\subtitle{$subtitle$}
+$endif$
+
+% To use the structured authors in the example above, you would need a custom template:
+% This allows for author and affiliation in YAML
+$for(author)$
+$if(author.name)$
+$author.name$$if(author.affiliation)$ ($author.affiliation$)$endif$
+$else$
+$author$
+$endif$
+$endfor$
+
+$if(email)$
+\email{$email$}
 $endif$
 
 $if(term)$
@@ -554,6 +529,16 @@ $if(assistant)$
 \assistant{$assistant$}
 $endif$
 
+$if(logo)$
+\logo{\includegraphics[width=6.68cm]{$logo$}}
+$endif$
+
+$if(doublespacing)$
+$if(onehalfspacing)$
+\usepackage{setspace}
+$else$
+$endif$
+$endif$
 
 \usepackage{tikz}
 
@@ -610,24 +595,23 @@ $endif$
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
 
-\setlength{\droptitle}{-4\baselineskip} % Move the title up
-
 \pretitle{\begin{flushleft}\Huge\bfseries} % Article title formatting
+\noindent
 \logo{$logo$}
 \posttitle{\end{flushleft}} % Article title closing formatting
 
+\setlength{\droptitle}{-4\baselineskip} % Move the title up
+
+
 	\noindent \begin{tabular*}{\textwidth}{ @{\extracolsep{\fill}} lr @{\extracolsep{\fill}}}
 
-\title{$title$} % Article title
+\title{
+\noindent
+\large\textbf{$title$}
 \subtitle{$subtitle$}
 \author{%
-\textsc{$author.name$}\thanks{$thanks$} \\[1ex] % Your name
+\textsc{$author.name$}\\[1ex] % Your name
 \normalsize {$author.affiliation$} \\ % Your institution
-%\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
-%\textsc{Jane Smith}\thanks{Corresponding author} \\[1ex] % Second author's name
-%\normalsize University of Utah \\ % Second author's institution
-%\normalsize \href{mailto:jane@smith.com}{jane@smith.com} % Second author's email address
-}
 \date{$date$} % Leave empty to omit a date
 \normalsize \href{mailto:\email{$email$}}{$email$} % Your email address
 \officehours{$if(officehours)$$officehours$$else$TBD$endif$} \\
@@ -635,7 +619,14 @@ $endif$
 \classroom{$if(classroom)$$classroom$$else$TBD$endif$}\\
 \classhours{$if(classhours)$$classhours$$else$TBD$endif$} \\
 \assistant{$if(assistant)$$assistant$$else$TBD$endif$}\\
-	&  \\
+	&  \\}
+
+
+%\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
+%\textsc{Jane Smith}\thanks{Corresponding author} \\[1ex] % Second author's name
+%\normalsize University of Utah \\ % Second author's institution
+%\normalsize \href{mailto:jane@smith.com}{jane@smith.com} % Second author's email address
+}
 	\hline
 	\end{tabular*}
 
@@ -644,17 +635,19 @@ $endif$
 
 %----------------------------------------------------------------------------------------
 
+
+
+
 \begin{document}
 
 $for(include-before)$
 $include-before$
-
 $endfor$
 
-
+$if(title)$
 % Print the title
 \maketitle
-
+$endif$
 
 
 		\thispagestyle{firststyle}
@@ -727,12 +720,6 @@ $endif$
 $endif$
 $endif$
 $if(biblatex)$
-$if(beamer)$
-\begin{frame}[allowframebreaks]{$biblio-title$}
-  \bibliographytrue
-  \printbibliography[heading=none]
-\end{frame}
-$else$
 \printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
 $endif$
 
@@ -741,6 +728,4 @@ $for(include-after)$
 $include-after$
 
 $endfor$
-
-
 \end{document}

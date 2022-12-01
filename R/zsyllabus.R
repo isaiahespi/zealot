@@ -36,10 +36,12 @@ zsyllabus <- function(...) {
   }
 
   zsyllabus = pkg_resource("resources/zsyllabus-template.tex")
+  logo = pkg_resource("resources/umd_logo.png")
 
   # call the base pdf_document function
   rmarkdown::pdf_document(
     template = zsyllabus,
     keep_tex = TRUE,
+    logo = logo,
     ...)
 }
