@@ -340,11 +340,9 @@ $endfor$
 \let\LanguageShortHands\languageshorthands
 \def\languageshorthands#1{}
 $endif$
-
 $for(header-includes)$
 $header-includes$
 $endfor$
-
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -428,13 +426,7 @@ $else$
 $endif$
 \subtitle{$subtitle$}
 $endif$
-$for(author)$
-$if(author.name)$
-$author.name$$if(author.affiliation)$ ($author.affiliation$)$endif$
-$else$
 \author{$for(author)$$author$$sep$ \and $endfor$}
-$endif$
-$endfor$
 \date{$date$}
 $if(beamer)$
 $if(institute)$
@@ -444,169 +436,11 @@ $if(titlegraphic)$
 \titlegraphic{\includegraphics{$titlegraphic$}}
 $endif$
 $if(logo)$
-\logo{\includegraphics[width=6.68cm]{$logo$}}
+\logo{\includegraphics{$logo$}}
 $endif$
 $endif$
-
-$if(email)$
-\texttt{$email$}
-$else$
-TBD
-$endif$
-
-$if(term)$
-\term{$term$}
-$endif$
-
-$if(officehours)$
-\officehours{$officehours$}
-$endif$
-
-$if(office)$
-\office{$office$}
-$endif$
-
-$if(classroom)$
-\classroom{$classroom$}
-$endif$
-
-$if(classhours)$
-\classroom{$classhours$}
-$endif$
-
-
-$if(assistant)$
-\assistant{$assistant$}
-$endif$
-
-
-
-% EVERYTHING ABOVE THIS LINE IS THE DEFAULT PANDOC LaTeX TEMPLATE --------------
-%-------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------
-
-%-------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%-------------------------------------------------------------------------------
-
-\usepackage[sc]{mathpazo} % Use the Palatino font
-\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
-\linespread{1.05} % Line spacing - Palatino needs more space between lines
-\usepackage{microtype} % Slightly tweak font spacing for aesthetics
-\usepackage[english]{babel} % Language hyphenation and typographical rules
-
-% Support for kableExtra package
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{multirow}
-\usepackage{pdflscape}
-\usepackage{threeparttable}
-\usepackage{threeparttablex}
-\usepackage[normalem]{ulem}
-\usepackage{makecell}
-\usepackage{colortbl}
-
-
-\usepackage{enumitem} % Customized lists
-\setlist[itemize]{noitemsep} % Make itemize lists more compact
-
-
-\usepackage{titlesec} % Allows customization of titles
-\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
-\renewcommand\thesubsection{\roman{subsection}} % roman numerals for subsections
-\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
-\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
-
-
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\usepackage{lastpage}
-\renewcommand{\headrulewidth}{0.3pt}
-\renewcommand{\footrulewidth}{0.0pt}
-
-\lhead{}
-\chead{}
-\rhead{\footnotesize $subtitle$ -- $date$}
-\lfoot{}
-\cfoot{\small \thepage/\pageref*{LastPage}}
-\rfoot{}
-
-\fancypagestyle{firststyle}
-{
-\renewcommand{\headrulewidth}{0pt}%
-   \fancyhf{}
-   \fancyfoot[C]{\small \thepage/\pageref*{LastPage}}
-}
-
-
-\usepackage{hyperref} % For hyperlinks in the PDF
-
-\makeatletter
-\@ifpackageloaded{hyperref}{}{%
-\ifxetex
-  \PassOptionsToPackage{hyphens}{url}\usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \PassOptionsToPackage{hyphens}{url}\usepackage[draft,unicode=true]{hyperref}
-\fi
-}
-
-\@ifpackageloaded{color}{
-    \PassOptionsToPackage{usenames,dvipsnames}{color}
-}{%
-    \usepackage[usenames,dvipsnames]{color}
-}
-\makeatother
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={$if(anonymous)$$else$$for(author)$$author.name$ ($author.affiliation$)$sep$ and $endfor$$endif$},
-             pdfkeywords = {$if(keywords)$$keywords$$endif$},
-            pdftitle={$title$$if(subtitle)$: $subtitle$$endif$},
-            colorlinks=true,
-            citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
-            urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
-            linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-
-
-
-%----------------------------------------------------------------------------------------
-%	TITLE SECTION
-%----------------------------------------------------------------------------------------
-
-\usepackage{titling} % Customizing the title section
-\setlength{\droptitle}{-4\baselineskip} % Move the title up
-
-
-%------------ Shrug-------------------------------------------------------------
-
-\usepackage{tikz}
-
-\newcommand{\shrug}[1][]{%
-\begin{tikzpicture}[baseline,x=0.8\ht\strutbox,y=0.8\ht\strutbox,line width=0.125ex,#1]
-\def\arm{(-2.5,0.95) to (-2,0.95) (-1.9,1) to (-1.5,0) (-1.35,0) to (-0.8,0)};
-\draw \arm;
-\draw[xscale=-1] \arm;
-\def\headpart{(0.6,0) arc[start angle=-40, end angle=40,x radius=0.6,y radius=0.8]};
-\draw \headpart;
-\draw[xscale=-1] \headpart;
-\def\eye{(-0.075,0.15) .. controls (0.02,0) .. (0.075,-0.15)};
-\draw[shift={(-0.3,0.8)}] \eye;
-\draw[shift={(0,0.85)}] \eye;
-% draw mouth
-\draw (-0.1,0.2) to [out=15,in=-100] (0.4,0.95);
-\end{tikzpicture}}
-
-%-------------------------------------------------------------------------------
 
 \begin{document}
-
-\pretitle{\begin{flushleft}\Huge\bfseries} % Article title formatting
-\noindent\logo{$logo$}
-\posttitle{\end{flushleft}} % Article title closing formatting
-
 $if(has-frontmatter)$
 \frontmatter
 $endif$
@@ -625,47 +459,43 @@ $endif$
 
 $for(include-before)$
 $include-before$
+
 $endfor$
-
-
-
-		\thispagestyle{firststyle}
-
-%	\thispagestyle{empty}
-
-	\noindent \begin{tabular*}{\textwidth}{ @{\extracolsep{\fill}} lr @{\extracolsep{\fill}}}
-
-Course Title: \title{\large\textbf{$title$}} & Course Number: \subtitle{$subtitle$} \\
-Term: \term{$term$}
-Instructor: \author{\textsc{$author.name$} & Email: \texttt{$email$} \\[1ex]
-\normalsize {$author.affiliation$} \\ % Your institution
-Course Dates: \date{$date$} \\
-Office: \office{$if(office)$$office$$else$TBD$endif$} & Office Hours: \officehours{$if(officehours)$$officehours$$else$TBD$endif$}\\
-Class Room: \classroom{$if(classroom)$$classroom$$else$TBD$endif$} & Class Hours: \classhours{$if(classhours)$$classhours$$else$TBD$endif$} \\
-\assistant{$if(assistant)$$assistant$$else$TBD$endif$}\\
-	&  \\
-	\hline
-	\end{tabular*}
-
-
-\vspace{2mm}
-
-
-
-%------------------------------------------------
+$if(toc)$
+$if(toc-title)$
+\renewcommand*\contentsname{$toc-title$}
+$endif$
+$if(beamer)$
+\begin{frame}[allowframebreaks]
+$if(toc-title)$
+  \frametitle{$toc-title$}
+$endif$
+  \tableofcontents[hideallsubsections]
+\end{frame}
+$else$
+{
+$if(colorlinks)$
+\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
+$endif$
+\setcounter{tocdepth}{$toc-depth$}
+\tableofcontents
+}
+$endif$
+$endif$
+$if(lof)$
+\listoffigures
+$endif$
+$if(lot)$
+\listoftables
+$endif$
+$if(linestretch)$
+\setstretch{$linestretch$}
+$endif$
+$if(has-frontmatter)$
+\mainmatter
+$endif$
 
 $body$
-
-%------------------------------------------------
-
-
-
-%------------------------------------------------
-
-
-%----------------------------------------------------------------------------------------
-%	REFERENCE LIST
-%----------------------------------------------------------------------------------------
 
 $if(has-frontmatter)$
 \backmatter
