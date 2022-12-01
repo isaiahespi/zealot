@@ -1,71 +1,18 @@
 ---
-title: "Title"
-subtitle: "Subtitle"
-author: Author name
-institution: My institution affiliation
-email: your.email@address.com
-thanks: A special thanks to person and people
-date: "`r format(Sys.time(), '%Y %m, %d')`"
-output: 
-  zealot::zarticle:
-    citation_package: natbib #alternative biblatex
-    latex_engine: xelatex
-    keep_tex: true
-    toc: FALSE
-classoption:
-  - twocolumn # alterantive onecolumn
-bibliography: references.bib # add name of your bib file
-biblio-style: apsr
-abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra accumsan in nisl nisi scelerisque eu ultrices vitae. Dolor purus non enim praesent elementum facilisis leo vel fringilla. Ornare massa eget egestas purus viverra accumsan in. Diam maecenas sed enim ut sem viverra aliquet eget sit. Consequat mauris nunc congue nisi vitae suscipit. Tellus id interdum velit laoreet. In ornare quam viverra orci sagittis eu volutpat odio. Et malesuada fames ac turpis egestas. Vehicula ipsum a arcu cursus vitae. Accumsan lacus vel facilisis volutpat est velit egestas dui id. Senectus et netus et malesuada fames. Risus pretium quam vulputate dignissim suspendisse in est ante in. Magna sit amet purus gravida. Diam vulputate ut pharetra sit amet aliquam. Vel facilisis volutpat est velit. Ultricies mi eget mauris pharetra et ultrices neque. Sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus."
-fontsize: 12pt
-link-citations: true
-colorlinks: true
-citecolor: blue
-linkcolor: blue
-onehalfspacing: true
-#doublespacing: true
-editor_options: 
-  markdown: 
-    wrap: 72
+title: "Template Title"
+author: "Your Name"
+date: "The Date"
+output: output_format
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(tidyverse)
-library(pollster)
-library(janitor)
-library(haven)
-library(kableExtra)
-
 ```
 
-# Introduction
+## Adding an RMarkdown Template
 
+This file is what a user will see when they select your template. Make sure that you update the fields in the yaml header. In particular you will want to update the `output` field to whatever format your template requires.
 
+This is a good place to demonstrate special features that your template provides. Ideally it should knit out-of-the-box, or at least contain clear instructions as to what needs changing.
 
-# Background
-
-
-
-# Method
-
-
-
-# Results
-
-
-
-# Conclusion
-
-
-
-# References
-
-<div id="refs"></div>
-  
-# Appendix
-
-```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
-
-
-```
+Finally, be sure to remove this message!

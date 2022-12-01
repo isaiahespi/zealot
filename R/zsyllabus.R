@@ -29,6 +29,7 @@
 zsyllabus <- function(...) {
   # locations of resource files in the package
   pkg_resource = function(...) {
+    # locations of resource files in the package
     system.file("rmarkdown", "templates", "z-syllabus", "resources",
                 "zsyllabus-template.tex",
                 package = "zealot")
@@ -39,5 +40,6 @@ zsyllabus <- function(...) {
   # call the base pdf_document function
   rmarkdown::pdf_document(
     template = zsyllabus,
+    keep_tex = TRUE,
     ...)
 }

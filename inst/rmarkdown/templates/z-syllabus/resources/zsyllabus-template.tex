@@ -436,7 +436,7 @@ $if(titlegraphic)$
 \titlegraphic{\includegraphics{$titlegraphic$}}
 $endif$
 $if(logo)$
-\logo{\includegraphics{$logo$}}
+\logo{\includegraphics[width=6.68cm]{$logo$}}
 $endif$
 $endif$
 
@@ -573,10 +573,6 @@ $endif$
 \end{tikzpicture}}
 
 
-
-
-
-
 \usepackage{hyperref} % For hyperlinks in the PDF
 
 \makeatletter
@@ -616,9 +612,9 @@ $endif$
 
 \setlength{\droptitle}{-4\baselineskip} % Move the title up
 
-\pretitle{\begin{center}\Huge\bfseries} % Article title formatting
+\pretitle{\begin{flushleft}\Huge\bfseries} % Article title formatting
 \logo{$logo$}
-\posttitle{\end{center}} % Article title closing formatting
+\posttitle{\end{flushleft}} % Article title closing formatting
 
 	\noindent \begin{tabular*}{\textwidth}{ @{\extracolsep{\fill}} lr @{\extracolsep{\fill}}}
 
