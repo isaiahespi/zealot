@@ -7,7 +7,6 @@ colorlinks: TRUE
 linkcolor: blue
 urlcolor: magenta
 citecolor: blue
-
 title: "Course Title"
 subtitle: "(course number)"
 term: "season/year"

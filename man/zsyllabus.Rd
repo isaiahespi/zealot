@@ -2,24 +2,30 @@
 % Please edit documentation in R/zsyllabus.R
 \name{zsyllabus}
 \alias{zsyllabus}
-\title{My Syllabus template}
+\title{My UMD Syllabus template}
 \usage{
 zsyllabus(...)
 }
 \arguments{
-\item{...}{Arguments to \code{\link[rmarkdown:pdf_document]{rmarkdown::pdf_document}}.}
+\item{...}{Arguments to \code{\link[rmarkdown:pdf_document]{rmarkdown::pdf_document()}}.}
+}
+\value{
+An R Markdown format object
 }
 \description{
-My description for this I guess
+A template to construct a syllabus formatted to follow the
+University of Maryland Accessible Syllabus template. I tried my best to
+make this template identical to the document shared by the Teaching and
+Learning Transformation Center.
 
-#' # YAML header fields\tabular{ll}{
+YAML header fields\tabular{ll}{
    FIELD \tab DESCRIPTION \cr
-   \code{title} \tab Title of the class (course number) \cr
+   \code{title} \tab Title of the class \cr
+   \code{subtitle} \tab (course number) \cr
    \code{term} \tab Season/Year \cr
    \code{author} \tab Name(s) of the professor(s) \cr
    \code{date} \tab start and end dates the course \cr
    \code{email} \tab Your email. \cr
-   \code{web} \tab Class website. \cr
    \code{officehours} \tab Your office hours. \cr
    \code{office} \tab Your office location. \cr
    \code{classroom} \tab The classroom location. \cr
