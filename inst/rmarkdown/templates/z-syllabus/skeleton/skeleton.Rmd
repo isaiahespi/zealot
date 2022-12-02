@@ -5,26 +5,25 @@ output:
     logo_height: "2.2cm"
     footer_on_first_page: FALSE
 geometry: margin=1in
+fontfamily: mathpazo
 fontsize: 11pt
 colorlinks: TRUE
 linkcolor: blue
 urlcolor: blue
 citecolor: blue
-title: "Course Title"
-subtitle: "(course number)"
-term: "season/year"
-author: 
-  - name: "Professor(s) name"
-  email: your.email@address.edu
-# email: your.email@address.edu
-date: "Start date - End date"
+title: "####"
+subtitle: "(Course Number)"
+term: "Season, Year"
+credits: "\\shrug"
+author: "####"
+email: your.email@address.edu
+date: "yyyy-dd-mm to yyyy-mm-dd"
 officehours: "\\shrug"
 office: "\\shrug"
 classroom: "\\shrug"
 classhours: "\\shrug"
-assistant: 
-  - name: "\\shrug"
-  email: "\\shrug"
+assistant: "\\shrug"
+assistantemail: "\\shrug"
 ---
 
 ```{r setup, include=FALSE}
@@ -89,7 +88,7 @@ It is our shared responsibility to know and abide by the University of Marylandâ
 - Copyright and intellectual property
 
 
-Please visit [link](www.ugst.umd.edu/courserelatedpolicies.html) for the Office of Undergraduate Studiesâ€™ full list of campus-wide policies and follow up with me if you have questions.
+Please visit [the Office of Undergraduate Studies](www.ugst.umd.edu/courserelatedpolicies.html) for the full list of campus-wide policies and follow up with me if you have questions.
 
 ## Policies and Resources for Graduate Courses ~(delete if you are teaching an undergraduate course)
 
@@ -100,7 +99,7 @@ It is our shared responsibility to know and abide by the University of Marylandâ
 - Attendance and excused absences
 - Grades and appeals
 - Copyright and intellectual property
-Please see the University's website for graduate course-related policies at: [link](https://gradschool.umd.edu/course-related-policies) 
+Please see the [University's website for graduate course-related policies](https://gradschool.umd.edu/course-related-policies) 
 
 # Course Guidelines
 
@@ -112,7 +111,7 @@ Additionally, it is your choice whether to disclose how you identify in terms of
 
 ## Communication with Instructor:
 
-**Email**: If you need to reach out and communicate with me, please email me at [email](xxxxxxxxx@umd.edu). Please DO NOT email me with questions that are easily found in the syllabus or on ELMS (i.e. When is this assignment due? How much is it worth? etc.) but please DO reach out about personal, academic, and intellectual concerns/questions.
+**Email**: If you need to reach out and communicate with me, please email me at [your.email@umd.edu](your.email@umd.edu). Please DO NOT email me with questions that are easily found in the syllabus or on ELMS (i.e. When is this assignment due? How much is it worth? etc.) but please DO reach out about personal, academic, and intellectual concerns/questions.
 While I will do my best to respond to emails within 24 hours, you will more likely receive email responses from me on Mondays, Wednesdays and Fridays from 8:00am-10:00am EST
 
 **ELMS**: I will send IMPORTANT announcements via ELMS messaging. You must make sure that your email & announcement notifications (including changes in assignments and/or due dates) are enabled in ELMS so you do not miss any messages.  You are responsible for checking your email and Canvas/ELMS inbox with regular frequency.
@@ -134,12 +133,15 @@ Any behavior (including harassment, sexual harassment, and racially and/or cultu
 - What is their purpose? How will they be conducted?
 
 ## Participation & Engagement
+
 - During live sessions
 - During group discussion boards
 
 ## Team Project
+
 - What are the components of the team project
 - What is the purpose? Where can they go to find more information? ELMS link
+
 ## Final Exam 
 - xxx
 - Clarify what tools are needed and where to access study materials
@@ -167,25 +169,7 @@ Finally, on each exam or assignment you must write out and sign the following pl
 
 > **"I pledge on my honor that I have not given or received any unauthorized assistance on this exam/assignment."**
 
-If you ever feel pressured to comply with someone elseâ€™s academic integrity violation, please reach out to me straight away. Also, **if you are ever unclear** about acceptable levels of collaboration, **please ask**! To help you avoid unintentional violations, the following table lists levels of collaboration that are acceptable for each graded exercise.
-
-\begin{table}[!h]
-\centering
-\begin{tabular}{l|l|l|l|l|l}
-\hline
- & Open Notes & Use Book & Search Online & Ask Friends & Work in Groups\\
-\hline
-\cellcolor{gray!6}{Homework} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\},}\\
-\hline
-Quizzes and Weekly Summaries & \textbackslash{}\{surd\} & \textbackslash{}\{surd\} & \textbackslash{}\{surd\} & X & X\\
-\hline
-\cellcolor{gray!6}{Team Project/ Paper/ Presentation} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}}\\
-\hline
-Final Exam & \textbackslash{}\{surd\} & \textbackslash{}\{surd\} & X & X & X\\
-\hline
-\end{tabular}
-\end{table}
-
+If you ever feel pressured to comply with someone elseâ€™s academic integrity violation, please reach out to me straight away. Also, **if you are ever unclear** about acceptable levels of collaboration, **please ask**!
 
 # Grades
 

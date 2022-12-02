@@ -1,7 +1,7 @@
 \documentclass[$if(fontsize)$$fontsize$$else$11pt,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
 $if(fontfamily)$
-\usepackage{$fontfamily$}
+\usepackage[$fontfamilyoptions$]{$fontfamily$}
 $else$
 \usepackage{lmodern}
 $endif$
@@ -54,6 +54,10 @@ $if(geometry)$
 $else$
 \usepackage[top=0.5in, bottom=.4in, left = 1in, right=1in, includeheadfoot]{geometry}
 $endif$
+
+
+\makeatletter
+\@ifpackageloaded{hyperref}{}{%
 \ifxetex
   \usepackage[setpagesize=false, % page size defined by xetex
               unicode=false, % unicode breaks when used with xetex
@@ -61,9 +65,16 @@ $endif$
 \else
   \usepackage[unicode=true]{hyperref}
 \fi
+}
+\@ifpackageloaded{color}{
+    \PassOptionsToPackage{usenames,dvipsnames}{color}
+}{%
+    \usepackage[usenames,dvipsnames]{color}
+}
+\makeatother
 \hypersetup{breaklinks=true,
             bookmarks=true,
-            pdfauthor={$for(author)$$author.name$ ($author.email$)$sep$ and $endfor$},
+            pdfauthor={$for(author)$$author.name$ ($author.affiliation$)$sep$ and $endfor$},
             pdftitle={$title$$if(subtitle)$: $subtitle$$endif$},
             colorlinks=true,
             citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
@@ -152,81 +163,41 @@ $endif$
 \usepackage{titling}
 
 % % Create subtitle command for use in maketitle
- \newcommand{\subtitle}[1]{
-   \posttitle{\large}
-}
+% \newcommand{\subtitle}[1]{
+%   \posttitle{\large}
+%}
 
 %% --------- above is almost identical with default rmarkdown-------------------
 
 
-\setlength{\droptitle}{-4\baselineskip} % Move the title up
+\setlength{\droptitle}{-5\baselineskip} % Move the title up
 % alternatively
 % \setlength{\droptitle}{-2em}
 
 $if(title)$
-$if(subtitle)$
-  \textcolor{red}{\textbf{\title{$title$: $subtitle$}}}
-  % \pretitle{\vspace{\droptitle}\centering\huge}
+  \title{\bfseries{\color{BrickRed}{Course Title:}} $title$}
 $else$
-  \textcolor{red}{\textbf{\title{$title$}}}
-$else$
-  \title{}
+  \title{\bfseries{\color{BrickRed}{Course Title:}} }
   % \pretitle{\vspace{\droptitle}}
 $endif$
-$endif$
-$if(term)$
-  \textbf{Term:}\term{$term$}
-$else$
-  \textbf{Term:}\term{}
-$endif$
+
 $if(author)$
-  \textbf{Professor:}\author{$for(author)$$author$$sep$ \\ $endfor$}
+  \author{\bfseries{Professor:} $author$}
   % \preauthor{\centering\large\emph}
   % \postauthor{\par}
 $else$
-  \textbf{Professor:}\author{}
+  \author{\bfseries{Professor:} }
   % \preauthor{}\postauthor{}
 $endif$
-$if(email)$
-  \textbf{Email:}\email{$email$}
-$else$
-  \textbf{Email:}\email{}
-$endif$
-$if(officehours)$
-  \textbf{Office Hours:}\officehours{$officehours$}
-$else$
-  \textbf{Office Hours:}\officehours{}
-$endif$
-$if(credits)$
-  \textbf{Credits:}\credits{$credits$}
-$else$
-  \textbf{Credits:}\credits{}
-$endif$
+
 $if(date)$
   % \predate{\centering\large\emph}
   % \postdate{\par}
-  \textbf{Course Dates:}\date{$date$}
+  \date{\bfseries{Course Dates:} $date$}
 $else$
-  \textbf{Course Dates:}\date{}
+  \date{\bfseries{Course Dates:} }
   % \predate{}\postdate{}
 $endif$
-$if(classroom)$
-  \textbf{Classroom:}\classroom{$classroom$}
-$else$
-  \textbf{Classroom:}\classroom{}
-$endif$
-$for(assistant)$
-$if(assistant.name)$
-  \textbf{Teaching Assistant:}\assistant{$assistant.name$$sep$, \\
-  $if(assistant.email)$ \textbf{Teaching Assistant Email:} ($assistant.email$)$endfor$}
-$else$
-  \textbf{Teaching Assistant:}\assistant{$assistant$}
-$else$
-  \textbf{Teaching Assistant:}\assistant{}
-$endif$
-
-
-
 
 %% --------- above is all the things for the syllabus --------------------------
 
@@ -247,7 +218,6 @@ $endif$
 \usepackage{gensymb} %degree symbol
 \usepackage{array}
 \usepackage{multirow}
-\usepackage{xcolor}
 \usepackage{wrapfig}
 \usepackage{float}
 \usepackage{colortbl}
@@ -288,6 +258,8 @@ $endif$
 \makeatletter
 \let\runtitle\@title
 \makeatother
+
+
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -456,6 +428,7 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
+%-------------------------------------------------------------------------------
 \begin{document}
 
 $if(title)$
@@ -468,7 +441,14 @@ $endif$
 
 \noindent \begin{tabular*}{\textwidth}{ @{\extracolsep{\fill}} lr @{\extracolsep{\fill}}}
 
+\textbf{Term:} $if(term)$$term$$else$TBD$endif$ \\
+\textbf{Credits:} $if(credits)$$credits$$else$TBD$endif$ & \textbf{Teaching Assistant:} $if(assistant)$$assistant$$else$TBD$endif$ \\
+\textbf{E-mail:} $if(email)$\texttt{$email$}$else$TBD$endif$ & \textbf{Teaching Assistant E-Mail:} $if(assistantemail)$$assistantemail$$else$TBD$endif$ \\
+\textbf{Class Hours:} $if(classhours)$$classhours$$else$TBD$endif$ & \textbf{Class Room:} $if(classroom)$$classroom$$else$TBD$endif$ \\
+\textbf{Office:} $if(office)$$office$$else$TBD$endif$ & \textbf{Office Hours:} $if(officehours)$$officehours$$else$TBD$endif$ \\
+	\end{tabular*}
 
+\vspace{2mm}
 
 
 
