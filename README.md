@@ -1,13 +1,20 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# zealot
+# Zealot
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of zealot is to be mine and allow me to use custom (or stolen)
-templates and formats for use with RMarkdown in RStudio.
+The goal of the `zealot` package is to be mine and allow me to use
+custom (or stolen) templates and formats for use with RMarkdown in
+RStudio. Also to share. I’ve only managed to make one template for now,
+and it is just a syllabus. But it took a long time to get it the way I
+wanted it.
+
+Some templates I intend to construct next; - A basic article template -
+A CV template - A template for fiction novels or stories or whatever
+(it’s not all academic, ew) - Tutorials in R - Website/Blog
 
 ## Installation
 
@@ -19,38 +26,25 @@ You can install the development version of zealot from
 devtools::install_github("isaiahespi/zealot")
 ```
 
-## Example
+## zsyllabus
 
-This is a basic example which shows you how to solve a common problem:
+The zsyllabus template (as it stands now) is a replicate of the
+University of Maryland Accessible Syllabus Template. There may be some
+minor tweaks I need to do to it, especially including an easy way to
+include a list of readings/assignments, but once you have the package
+installed, you should be able to edit the document however you see fit.
+For now, it should only work if knitted into a PDF document. All of the
+usual arguments from `rmarkdown::pdf_document()` are included, with the
+additional ability to add a logo to the header. See run
+`?zealot::zsyllabus()` in the R console for more info.
 
-``` r
-library(zealot)
-## basic example code
-```
+To use the template in RStudio, create a new R Markdown document from
+the RStudio menu `File -> New File -> R Markdown -> From Template`.
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+See the example below:
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
+![Zealot](https://i.imgur.com/pGW4p75.jpg)
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
+## Z-article
 
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+Coming Soon
