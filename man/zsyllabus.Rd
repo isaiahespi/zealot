@@ -4,10 +4,30 @@
 \alias{zsyllabus}
 \title{My UMD Syllabus template}
 \usage{
-zsyllabus(...)
+zsyllabus(
+  logo = NULL,
+  logo_height = "1.2cm",
+  short_title = NULL,
+  footer_on_first_page = FALSE,
+  ...
+)
 }
 \arguments{
-\item{...}{Arguments to \code{\link[rmarkdown:pdf_document]{rmarkdown::pdf_document()}}.}
+\item{logo}{File path to Company logo file. The logo will be printed on
+the top right corner of the first page and the size will be adjusted to
+\code{logo_height}.}
+
+\item{logo_height}{Height of the logo image. This logo image will be scaled
+to height and the default height is 1.2cm.}
+
+\item{short_title}{A shortened version of the course title or the course number to be printed
+on the top-right corner of every page, except the front page}
+
+\item{footer_on_first_page}{T/F value for whether the institution info footer
+will be displayed on the front page. Default is FALSE}
+
+\item{...}{other options to be passed to \code{\link[rmarkdown:pdf_document]{rmarkdown::pdf_document}}. See
+?rmarkdown::pdf_document for details.}
 }
 \value{
 An R Markdown format object
@@ -26,6 +46,7 @@ YAML header fields\tabular{ll}{
    \code{author} \tab Name(s) of the professor(s) \cr
    \code{date} \tab start and end dates the course \cr
    \code{email} \tab Your email. \cr
+   \code{logo} \tab logo from institution \cr
    \code{officehours} \tab Your office hours. \cr
    \code{office} \tab Your office location. \cr
    \code{classroom} \tab The classroom location. \cr

@@ -1,17 +1,20 @@
 ---
 output: 
   zealot::zsyllabus:
+    logo: umd_logo.png
+    logo_height: "1.2cm"
+    footer_on_first_page: FALSE
 geometry: margin=1in
 fontsize: 11pt
 colorlinks: TRUE
 linkcolor: blue
-urlcolor: magenta
+urlcolor: blue
 citecolor: blue
 title: "Course Title"
 subtitle: "(course number)"
 term: "season/year"
 author: "Professor(s) name"
-date: "Start and end dates of the course"
+date: "Start date - End date"
 email: your.email@address.edu
 officehours: "\\shrug"
 office: "\\shrug"
@@ -150,71 +153,6 @@ Any behavior (including harassment, sexual harassment, and racially and/or cultu
 | Final Exam                      | 20%          |
 | Total                           | 100%         |
 
-
-
-```{r grading, warning=FALSE}
-
-# Insert a table of your grading structure
-# requires two R packages: `tidyverse` and `kableExtra`
-# those were already included in the 'setup' R code chunk above
-
-grade_tbl <- tibble::tribble(
-                          ~Assignment, ~Percentage..,
-                           "Homework",         "30%",
-       "Quizzes and Weekly Summaries",         "15%",
-           "Participation/Engagement",         "15%",
-  "Team Project/ Paper/ Presentation",         "20%",
-                         "Final Exam",         "20%",
-                              "Total",        "100%"
-  )
-
-
-
-kable(
-  grade_tbl,
-  format = "latex",
-  digits = 3,
-  row.names = FALSE,
-  align = "l",
-  caption = "Grading Structure"
-)|>
-  kable_styling(
-    latex_options = c("striped", "basic", "hold_position"),
-    position = "center",
-    full_width = FALSE
-  ) 
-
-# Alternatively, simply include the raw LaTeX
-# Copy and paste the below LaTeX into the document and delete this R-code chunk
-# Don't forget to remove the pound signs '#' (Or 'hashtags')
-  
-# \begin{table}
-# 
-# \caption{Grading Structure}
-# \centering
-# \begin{tabular}[t]{l|l}
-# \hline
-# Assignment & Percentage..\\
-# \hline
-# Homework & 30\%\\
-# \hline
-# Quizzes and Weekly Summaries & 15\%\\
-# \hline
-# Participation/Engagement & 15\%\\
-# \hline
-# Team Project/ Paper/ Presentation & 20\%\\
-# \hline
-# Final Exam & 20\%\\
-# \hline
-# Total & 100\%\\
-# \hline
-# \end{tabular}
-# \end{table}
-  
-
-```
-
-
 # Academic Integrity
 
 Describe your expectations for academic integrity. The following is sample text regarding the use of Turnitin: 
@@ -229,56 +167,23 @@ Finally, on each exam or assignment you must write out and sign the following pl
 
 If you ever feel pressured to comply with someone else’s academic integrity violation, please reach out to me straight away. Also, **if you are ever unclear** about acceptable levels of collaboration, **please ask**! To help you avoid unintentional violations, the following table lists levels of collaboration that are acceptable for each graded exercise.
 
-```{r acceptable}
+\begin{table}[!h]
+\centering
+\begin{tabular}{l|l|l|l|l|l}
+\hline
+ & Open Notes & Use Book & Search Online & Ask Friends & Work in Groups\\
+\hline
+\cellcolor{gray!6}{Homework} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\},}\\
+\hline
+Quizzes and Weekly Summaries & \textbackslash{}\{surd\} & \textbackslash{}\{surd\} & \textbackslash{}\{surd\} & X & X\\
+\hline
+\cellcolor{gray!6}{Team Project/ Paper/ Presentation} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}}\\
+\hline
+Final Exam & \textbackslash{}\{surd\} & \textbackslash{}\{surd\} & X & X & X\\
+\hline
+\end{tabular}
+\end{table}
 
-
-
-tbl_2 <- tibble::tribble(
-~"", ~"Open Notes", ~"Use Book", ~"Search Online", ~"Ask Friends", ~"Work in Groups",
-"Homework","\\{surd}","\\{surd}","\\{surd}","\\{surd}","\\{surd},",
-"Quizzes and Weekly Summaries","\\{surd}",  "\\{surd}", "\\{surd}", "X", "X",
-"Team Project/ Paper/ Presentation","\\{surd}","\\{surd}","\\{surd}","\\{surd}","\\{surd}",
-"Final Exam","\\{surd}", "\\{surd}", "X", "X", "X"
-)
-
-
-
-kable(
-  tbl_2,
-  format = "latex",
-  digits = 3,
-  row.names = FALSE,
-  align = "l"
-)|>
-  kable_styling(
-    latex_options = c("striped", "basic", "hold_position"),
-    position = "center",
-    full_width = FALSE
-  ) 
-
-# Alternatively, simply include the raw LaTeX
-# Copy and paste the below LaTeX into the document and delete this R-code chunk
-# Don't forget to remove the pound signs '#' (Or 'hashtags')
-
-# \begin{table}[!h]
-# \centering
-# \begin{tabular}{l|l|l|l|l|l}
-# \hline
-#  & Open Notes & Use Book & Search Online & Ask Friends & Work in Groups\\
-# \hline
-# \cellcolor{gray!6}{Homework} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\},}\\
-# \hline
-# Quizzes and Weekly Summaries & \textbackslash{}\{surd\} & \textbackslash{}\{surd\} & \textbackslash{}\{surd\} & X & X\\
-# \hline
-# \cellcolor{gray!6}{Team Project/ Paper/ Presentation} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}} & \cellcolor{gray!6}{\textbackslash{}\{surd\}}\\
-# \hline
-# Final Exam & \textbackslash{}\{surd\} & \textbackslash{}\{surd\} & X & X & X\\
-# \hline
-# \end{tabular}
-# \end{table}
-
-
-```
 
 # Grades
 

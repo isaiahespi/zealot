@@ -2,3 +2,6 @@
 
 export(zarticle)
 export(zsyllabus)
+import(knitr)
+importFrom(rmarkdown,pandoc_variable_arg)
+importFrom(rmarkdown,pdf_document)

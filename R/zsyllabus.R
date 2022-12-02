@@ -15,6 +15,7 @@
 #' | `author` | Name(s) of the professor(s) |
 #' | `date` | start and end dates the course |
 #' | `email` | Your email. |
+#' | `logo` | logo from institution
 #' | `officehours` | Your office hours.|
 #' | `office` | Your office location. |
 #' | `classroom` | The classroom location.|
@@ -22,23 +23,66 @@
 #' | `assistant` | Name(s) of teaching assistant(s)
 #'
 #'
+#' @param logo File path to Company logo file. The logo will be printed on
+#' the top right corner of the first page and the size will be adjusted to
+#' `logo_height`.
 #'
+#' @param logo_height Height of the logo image. This logo image will be scaled
+#' to height and the default height is 1.2cm.
 #'
-#' @param ...
-#' Arguments to [`rmarkdown::pdf_document()`].
+#' @param short_title A shortened version of the course title or the course number to be printed
+#' on the top-right corner of every page, except the front page
+#'
+#' @param footer_on_first_page T/F value for whether the institution info footer
+#' will be displayed on the front page. Default is FALSE
+#'
+#' @param ... other options to be passed to [`rmarkdown::pdf_document`]. See
+#' ?rmarkdown::pdf_document for details.
+#'
+#' @importFrom rmarkdown pdf_document pandoc_variable_arg
+#' @import knitr
+#'
 #'
 #' @return An R Markdown format object
 #'
 #' @md
 #' @export
 #'
-zsyllabus <- function(...){
-  zsyllabus <- system.file("rmarkdown", "templates", "z-syllabus", "resources",
-                           "zsyllabus-template.tex",
-                           package = "zealot")
-  # call the base pdf_document function
-  rmarkdown::pdf_document(
-    template = zsyllabus,
-    ...)
+zsyllabus <- function(logo = NULL,
+                      logo_height = "1.2cm",
+                      short_title = NULL,
+                      footer_on_first_page = FALSE,
+                      ...){
+  templ_args <- c()
 
+  if (!is.null(logo)) {
+    templ_args <- c(templ_args, pandoc_variable_arg("logo", logo),
+                    pandoc_variable_arg("logo_height", logo_height))
+  }
+
+  if (!is.null(short_title)) {
+    templ_args <- c(templ_args, pandoc_variable_arg("short_title", short_title))
+  }
+
+  if (footer_on_first_page) {
+    templ_args <- c(templ_args,
+                    pandoc_variable_arg("footer_on_first_page", "yes"))
+  }
+
+  zsyllabus <- system.file("rmarkdown", "templates", "z-syllabus", "resources",
+                           "zsyllabus.tex",
+                           package = "zealot")
+
+
+  # call the base pdf_document function
+  config <- rmarkdown::pdf_document(
+    template = zsyllabus,
+    keep_tex = TRUE,
+    ...
+  )
+
+  pre_pandoc <- config$pandoc$args
+  config$pandoc$args <- c(pre_pandoc, templ_args)
+
+  return(config)
 }
