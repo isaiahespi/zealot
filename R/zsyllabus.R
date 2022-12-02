@@ -28,7 +28,7 @@
 #' `logo_height`.
 #'
 #' @param logo_height Height of the logo image. This logo image will be scaled
-#' to height and the default height is 1.2cm.
+#' to height and the default height is 2.2cm.
 #'
 #' @param short_title A shortened version of the course title or the course number to be printed
 #' on the top-right corner of every page, except the front page
@@ -49,7 +49,7 @@
 #' @export
 #'
 zsyllabus <- function(logo = NULL,
-                      logo_height = "1.2cm",
+                      logo_height = "2.2cm",
                       short_title = NULL,
                       footer_on_first_page = FALSE,
                       ...){

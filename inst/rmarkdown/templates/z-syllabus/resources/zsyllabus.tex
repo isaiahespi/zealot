@@ -63,8 +63,8 @@ $endif$
 \fi
 \hypersetup{breaklinks=true,
             bookmarks=true,
-            pdfauthor={$author-meta$},
-            pdftitle={$title-meta$},
+            pdfauthor={$for(author)$$author.name$ ($author.email$)$sep$ and $endfor$},
+            pdftitle={$title$$if(subtitle)$: $subtitle$$endif$},
             colorlinks=true,
             citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
             urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
@@ -152,36 +152,83 @@ $endif$
 \usepackage{titling}
 
 % % Create subtitle command for use in maketitle
-% \newcommand{\subtitle}[1]{
-%   \posttitle{\large}
-% }
+ \newcommand{\subtitle}[1]{
+   \posttitle{\large}
+}
 
+%% --------- above is almost identical with default rmarkdown-------------------
+
+
+\setlength{\droptitle}{-4\baselineskip} % Move the title up
+% alternatively
 % \setlength{\droptitle}{-2em}
+
 $if(title)$
-  \title{$title$}
+$if(subtitle)$
+  \textcolor{red}{\textbf{\title{$title$: $subtitle$}}}
   % \pretitle{\vspace{\droptitle}\centering\huge}
+$else$
+  \textcolor{red}{\textbf{\title{$title$}}}
 $else$
   \title{}
   % \pretitle{\vspace{\droptitle}}
 $endif$
+$endif$
+$if(term)$
+  \textbf{Term:}\term{$term$}
+$else$
+  \textbf{Term:}\term{}
+$endif$
 $if(author)$
-  \author{$for(author)$$author$$sep$ \\ $endfor$}
+  \textbf{Professor:}\author{$for(author)$$author$$sep$ \\ $endfor$}
   % \preauthor{\centering\large\emph}
   % \postauthor{\par}
 $else$
-  \author{}
+  \textbf{Professor:}\author{}
   % \preauthor{}\postauthor{}
+$endif$
+$if(email)$
+  \textbf{Email:}\email{$email$}
+$else$
+  \textbf{Email:}\email{}
+$endif$
+$if(officehours)$
+  \textbf{Office Hours:}\officehours{$officehours$}
+$else$
+  \textbf{Office Hours:}\officehours{}
+$endif$
+$if(credits)$
+  \textbf{Credits:}\credits{$credits$}
+$else$
+  \textbf{Credits:}\credits{}
 $endif$
 $if(date)$
   % \predate{\centering\large\emph}
   % \postdate{\par}
-  \date{$date$}
+  \textbf{Course Dates:}\date{$date$}
 $else$
-  \date{}
+  \textbf{Course Dates:}\date{}
   % \predate{}\postdate{}
 $endif$
+$if(classroom)$
+  \textbf{Classroom:}\classroom{$classroom$}
+$else$
+  \textbf{Classroom:}\classroom{}
+$endif$
+$for(assistant)$
+$if(assistant.name)$
+  \textbf{Teaching Assistant:}\assistant{$assistant.name$$sep$, \\
+  $if(assistant.email)$ \textbf{Teaching Assistant Email:} ($assistant.email$)$endfor$}
+$else$
+  \textbf{Teaching Assistant:}\assistant{$assistant$}
+$else$
+  \textbf{Teaching Assistant:}\assistant{}
+$endif$
 
-%% --------- above is almost identical with default rmarkdown-------------------
+
+
+
+%% --------- above is all the things for the syllabus --------------------------
 
 %% document formatting
  % colors for tables and text
@@ -288,15 +335,16 @@ $endif$
 \setlength\parindent{0pt}
 
 \usepackage{titlesec}
-\titleformat*{\section}{\sc \large \color[rgb]{0,0,0}}
-\titleformat*{\subsection}{\large}
-\titleformat*{\subsubsection}{\normalsize}
+\titleformat*{\section}{\sc \bf \large \color[rgb]{0,0,0}}
+\titleformat*{\subsection}{\bf \large}
+\titleformat*{\subsubsection}{\bf \normalsize}
 \titlespacing\section{0pt}{8pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
 \titlespacing\subsection{0pt}{6pt plus 2pt minus 2pt}{-2pt plus 2pt minus 2pt}
 \titlespacing\subsubsection{0pt}{2pt plus 2pt minus 2pt}{-3pt plus 2pt minus 2pt}
 
 
-% set up title page
+%----- set up title page -------------------------------------------------------
+
 \pretitle{
 $if(logo)$
 \begin{flushleft}
@@ -317,11 +365,13 @@ $else$
 }
 $endif$
 
-\preauthor{\par\begin{flushleft}\large\vskip -.5em}
+\preauthor{\par\begin{flushleft}\large\vskip -1em}
 \postauthor{\end{flushleft}}
 
 \predate{\par\begin{flushleft}\large\vskip -1em}
 \postdate{\end{flushleft}  }
+
+
 
 \makeatletter
 \def\@seccntformat#1{\llap{\csname the#1\endcsname \hspace{.075 in}}}
@@ -407,6 +457,7 @@ $header-includes$
 $endfor$
 
 \begin{document}
+
 $if(title)$
 \maketitle
 $endif$
@@ -414,6 +465,12 @@ $endif$
 $if(footer_on_first_page)$
 \thispagestyle{firststyle}
 $endif$
+
+\noindent \begin{tabular*}{\textwidth}{ @{\extracolsep{\fill}} lr @{\extracolsep{\fill}}}
+
+
+
+
 
 $if(abstract)$
 \begin{abstract}

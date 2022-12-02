@@ -2,7 +2,7 @@
 output: 
   zealot::zsyllabus:
     logo: umd_logo.png
-    logo_height: "1.2cm"
+    logo_height: "2.2cm"
     footer_on_first_page: FALSE
 geometry: margin=1in
 fontsize: 11pt
@@ -13,14 +13,18 @@ citecolor: blue
 title: "Course Title"
 subtitle: "(course number)"
 term: "season/year"
-author: "Professor(s) name"
+author: 
+  - name: "Professor(s) name"
+  email: your.email@address.edu
+# email: your.email@address.edu
 date: "Start date - End date"
-email: your.email@address.edu
 officehours: "\\shrug"
 office: "\\shrug"
 classroom: "\\shrug"
 classhours: "\\shrug"
-assistant: "\\shrug"
+assistant: 
+  - name: "\\shrug"
+  email: "\\shrug"
 ---
 
 ```{r setup, include=FALSE}
@@ -30,8 +34,6 @@ options(scipen=999) # This stops the usage of scientific notation.
 library(tidyverse)
 library(kableExtra)
 library(lubridate)
-
-
 
 ```
 
@@ -46,7 +48,7 @@ After successfully completing this course you will be able to:
 
 - State three to five outcomes that you expect your students will achieve as a result of this class.
 - Outcomes should be clear and measurable and worded around what students do (e.g., define, contrast, apply, analyze, create, evaluate).
-- If your course carries a General Education designation, review the learning outcomes [here](https://gened.umd.edu/faculty/general-education-learning-outcomes-and-assessment-rubrics)
+- If your course carries a [General Education designation, review the learning outcomes here](https://gened.umd.edu/faculty/general-education-learning-outcomes-and-assessment-rubrics)
 
 
 ## Required Resources 
