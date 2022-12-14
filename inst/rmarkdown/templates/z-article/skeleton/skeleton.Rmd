@@ -1,12 +1,37 @@
 ---
-title: "Template Title"
-author: "Your Name"
-date: "The Date"
-output: output_format
+output: 
+  zealot::zarticle:
+    logo: umd_logo.png
+    logo_height: "2.2cm"
+    keep_tex: true
+    fig_caption: true
+    dev: cairo_pdf
+    citation_package: biblatex
+title: "Article Title"
+subtitle: "Subtitle"
+thanks: "Thanks to all the important people. Replication files are available on request."
+author:
+  - name: "Author Name"
+  - affiliation: "University of Someplace"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet libero justo. Pellentesque eget nibh ex. Aliquam tincidunt egestas lectus id ullamcorper. Proin tellus orci, posuere sed cursus at, bibendum ac odio. Nam consequat non ante eget aliquam. Nulla facilisis tincidunt elit. Nunc hendrerit pellentesque quam, eu imperdiet ipsum porttitor ut. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse potenti. Duis vitae nibh mauris. Duis nec sem sit amet ante dictum mattis. Suspendisse diam velit, maximus eget commodo at, faucibus et nisi. Ut a pellentesque eros, sit amet suscipit eros. Nunc tincidunt quis risus suscipit vestibulum. Quisque eu fringilla massa."
+fontfamily: mathpazo
+mainfont: Palatino
+fontsize: 11pt
+classoption: twocolumn #alt: onecolumn.
+colorlinks: true
+linkcolor: blue
+urlcolor: blue
+citecolor: blue
+endnotes: true
+header-includes:
+  - \linespread{1.05}
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, tidy = TRUE)
+
+
 ```
 
 ## Adding an RMarkdown Template
