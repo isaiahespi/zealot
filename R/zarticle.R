@@ -25,6 +25,7 @@
 #' @param ... Arguments to [`rmarkdown::pdf_document`]. See
 #' ?rmarkdown::pdf_document for details.
 #'
+#' @param csl specify citation-style-language file to use
 #'
 #' @importFrom rmarkdown pdf_document pandoc_variable_arg
 #' @import knitr
@@ -35,6 +36,7 @@
 zarticle <- function(
     logo = NULL,
     logo_height = "2.2cm",
+    csl = NULL,
     ...){
   # locations of resource files in the package
   pkg_resource = function(...) {
@@ -48,11 +50,19 @@ zarticle <- function(
                     pandoc_variable_arg("logo_height", logo_height))
   }
 
-  zarticle <- system.file("rmarkdown", "templates", "z-article", "resources",
+  if (!is.null(csl)){
+    templ_args <- c(templ_args, pandoc_variable_arg("csl", csl))
+  }
+
+
+  zarticle <- system.file("rmarkdown",
+                          "templates",
+                          "z-article",
+                          "resources",
+                          "zarticle.tex",
                           "apsr.bst",
                           "american-political-science-association.csl",
-                           "zarticle.tex",
-                           package = "zealot")
+                          package = "zealot")
 
 
   # call the base pdf_document function

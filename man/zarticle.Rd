@@ -4,7 +4,7 @@
 \alias{zarticle}
 \title{My Article template output format from the zealot package}
 \usage{
-zarticle(logo = NULL, logo_height = "2.2cm", ...)
+zarticle(logo = NULL, logo_height = "2.2cm", csl = NULL, ...)
 }
 \arguments{
 \item{logo}{File path to some logo file. The logo will be printed on
@@ -12,6 +12,8 @@ the top left corner of the first page and the size will be adjusted to logo_heig
 
 \item{logo_height}{Height of the logo image. This logo image will be scaled
 to height and the default height is 2.2cm.}
+
+\item{csl}{specify citation-style-language file to use}
 
 \item{...}{Arguments to \code{\link[rmarkdown:pdf_document]{rmarkdown::pdf_document}}. See
 ?rmarkdown::pdf_document for details.}

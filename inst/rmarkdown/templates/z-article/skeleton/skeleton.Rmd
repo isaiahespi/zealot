@@ -5,6 +5,7 @@ output:
     logo_height: "2.2cm"
     dev: cairo_pdf
     citation_package: biblatex
+    latex_engine: xelatex
 title: "Article Title"
 subtitle: "Subtitle"
 thanks: "Thanks to all the important people. Replication files are available on request."
@@ -13,12 +14,10 @@ author:
   - affiliation: "University of Someplace"
 email: your.email@address.edu
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-biblio-style: apsr
 csl: american-political-science-association.csl
 bibliography: sample.bib
 abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet libero justo. Pellentesque eget nibh ex. Aliquam tincidunt egestas lectus id ullamcorper. Proin tellus orci, posuere sed cursus at, bibendum ac odio. Nam consequat non ante eget aliquam. Nulla facilisis tincidunt elit. Nunc hendrerit pellentesque quam, eu imperdiet ipsum porttitor ut. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse potenti. Duis vitae nibh mauris. Duis nec sem sit amet ante dictum mattis. Suspendisse diam velit, maximus eget commodo at, faucibus et nisi. Ut a pellentesque eros, sit amet suscipit eros. Nunc tincidunt quis risus suscipit vestibulum. Quisque eu fringilla massa."
 fontfamily: mathpazo
-mainfont: Palatino
 fontsize: 11pt
 lettrine: true # The lettrine is the first enlarged letter at the beginning of the text
 classoption: twocolumn #alt: onecolumn.
@@ -32,7 +31,7 @@ header-includes:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, tidy = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 
 
 ```

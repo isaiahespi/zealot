@@ -369,6 +369,12 @@ $endif$
 \usepackage{titling}
 
 
+% \usepackage{etoolbox}
+% \makeatletter
+% \providecommand{\subtitle}[1]{% add subtitle to \maketitle
+%   \apptocmd{\@title}{\par {\large #1 \par}}{}{}}
+% \makeatother
+
 \setlength{\droptitle}{-5\baselineskip} % Move the title up
 % alternatively
 % \setlength{\droptitle}{-2em}
@@ -391,12 +397,8 @@ $if(title)$
 \title{$title$
   % \pretitle{\vspace{\droptitle}}
 $if(subtitle)$
-\usepackage{etoolbox}
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}}
-\makeatother
-\subtitle{$subtitle$}$endif$
+\subtitle{$subtitle$}
+$endif$
 $if(thanks)$\thanks{$thanks$}
 $endif$
 $endif$

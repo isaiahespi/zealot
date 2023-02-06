@@ -1,0 +1,409 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+11pt
+twocolumn
+]{article}
+
+\usepackage[]{mathpazo}
+
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra, xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+
+\fi
+
+
+
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[hmarginratio=1:1, top=32mm, columnsep=20pt, includeheadfoot]{geometry}
+
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+
+
+\usepackage{xcolor}
+
+\makeatletter
+\@ifpackageloaded{hyperref}{}{%
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+}
+\@ifpackageloaded{color}{
+    \PassOptionsToPackage{usenames,dvipsnames}{color}
+}{%
+    \usepackage[usenames,dvipsnames]{color}
+}
+\makeatother
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Author Name () and  (University of Someplace)},
+            pdftitle={Article Title: Subtitle},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=blue,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[]{biblatex}
+\addbibresource{sample.bib}
+
+
+
+
+
+
+
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+
+\hypersetup{
+  pdftitle={Article Title},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+
+
+
+
+
+%% --------- above is almost identical with default rmarkdown-------------------
+%-------------------------------------------------------------------------------
+% TITLE SECTION
+%-------------------------------------------------------------------------------
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+
+\setlength{\droptitle}{-5\baselineskip} % Move the title up
+% alternatively
+% \setlength{\droptitle}{-2em}
+
+% Set up for small logo in top corner of document
+% alternative is flushright
+\pretitle{
+\begin{flushleft}
+\includegraphics[height=2.2cm, keepaspectratio]{umd_logo.png}
+\end{flushleft}
+\setlength{\droptitle}{-5\baselineskip} % Move the title up
+\begin{center}\huge\bfseries % Article title formatting
+}
+
+\posttitle{\end{center}} % Article title closing formatting
+
+\title{Article Title
+  % \pretitle{\vspace{\droptitle}}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}}
+\makeatother
+\subtitle{Subtitle}\thanks{Thanks to all the important people.
+Replication files are available on request.}
+
+
+  \author{Author Name () \and
+
+  
+   (University of Someplace)
+
+  \thanks{Thanks to all the important people. Replication files are
+available on request.}
+
+
+  \email{\href{\href{mailto:your.email@address.edu}{\nolinkurl{your.email@address.edu}}}{\href{mailto:your.email@address.edu}{\nolinkurl{your.email@address.edu}}} \\[1ex]
+  % \preauthor{\centering\large\emph}
+  % \postauthor{\par}
+  % \preauthor{}\postauthor{}
+
+  \predate{\par\begin{center}\large\vskip -1em}
+  \postauthor{\end{center}}
+  \date{December 15, 2022}
+  % \predate{}\postdate{}
+
+
+
+% add an option for endnotes ---
+
+\usepackage{endnotes}
+\renewcommand{\enotesize}{\normalsize}
+\let\footnote=\endnote
+
+\makeatletter
+\def\@seccntformat#1{\llap{\csname the#1\endcsname \hspace{.075 in}}}
+\makeatother
+
+% % suppress chapter in section numbering
+% \renewcommand*\thesection{\arabic{section}}
+
+% spacing of bulleted lists
+\usepackage{enumitem} %control spacing of enumerated items
+\setlist[itemize]{noitemsep, topsep=0pt}
+
+\usepackage{abstract} % Allows abstract customization
+% Set the "Abstract" text to bold
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+
+\newlength\tbspace
+\setlength\tbspace{.25in}
+
+% units.
+%\usepackage{units}
+
+
+\def\tightlist{}
+
+
+%-------------------------------------------------------------------------------
+%% document formatting
+%-------------------------------------------------------------------------------
+
+
+ % colors for tables and text
+\usepackage{ragged2e} % justifying text
+\usepackage{setspace} % spacing commands, automatically makes captions single-spaced
+%  \setstretch{1.2} \frenchspacing
+\usepackage{lastpage} % access number of last page for numbering in margin
+
+%% fonts setup
+\usepackage{gensymb} %degree symbol
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage{makecell}
+\usepackage[hang]{footmisc}
+\usepackage{booktabs}
+
+
+
+\usepackage{titlesec} % Allows customization of titles
+% removes numbered sections
+\titleformat*{\section}{\sc \bf \large \color[rgb]{0,0,0}}
+\titleformat*{\subsection}{\bf \large}
+\titleformat*{\subsubsection}{\bf \normalsize}
+\titlespacing\section{0pt}{8pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{6pt plus 2pt minus 2pt}{-2pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{2pt plus 2pt minus 2pt}{-3pt plus 2pt minus 2pt}
+
+\robustify\tnote
+
+% table/figure captions (titles and legends)
+
+% \usepackage{caption}
+% % otherwise just
+% \captionsetup{font=small, labelfont={sc, bf}}
+% 
+% table/figure captions (titles and legends)
+\usepackage[singlelinecheck=false]{caption} % left justify table captions
+\captionsetup{font={color=black, sf}, skip=4pt, size=small, labelfont=sf, labelsep = period} % color and spacing between caption and table proper, updated
+
+\makeatletter
+\let\runtitle\@title
+\makeatother
+
+
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[R]{\author{truetrue}} % Custom header text
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+% \fancypagestyle{firststyle}
+% {
+%    \fancyhf{}
+%    %    \renewcommand{\footrulewidth}{0pt}
+%    % }
+
+\setlength\parindent{0pt}
+
+
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\usepackage{tikz}
+
+\newcommand{\shrug}[1][]{%
+\begin{tikzpicture}[baseline,x=0.8\ht\strutbox,y=0.8\ht\strutbox,line width=0.125ex,#1]
+\def\arm{(-2.5,0.95) to (-2,0.95) (-1.9,1) to (-1.5,0) (-1.35,0) to (-0.8,0)};
+\draw \arm;
+\draw[xscale=-1] \arm;
+\def\headpart{(0.6,0) arc[start angle=-40, end angle=40,x radius=0.6,y radius=0.8]};
+\draw \headpart;
+\draw[xscale=-1] \headpart;
+\def\eye{(-0.075,0.15) .. controls (0.02,0) .. (0.075,-0.15)};
+\draw[shift={(-0.3,0.8)}] \eye;
+\draw[shift={(0,0.85)}] \eye;
+% draw mouth
+\draw (-0.1,0.2) to [out=15,in=-100] (0.4,0.95);
+\end{tikzpicture}}
+
+
+
+
+\linespread{1.05}
+
+%-------------------------------------------------------------------------------
+% Begin Document
+%-------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+
+\begin{abstract}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet
+libero justo. Pellentesque eget nibh ex. Aliquam tincidunt egestas
+lectus id ullamcorper. Proin tellus orci, posuere sed cursus at,
+bibendum ac odio. Nam consequat non ante eget aliquam. Nulla facilisis
+tincidunt elit. Nunc hendrerit pellentesque quam, eu imperdiet ipsum
+porttitor ut. Interdum et malesuada fames ac ante ipsum primis in
+faucibus. Suspendisse potenti. Duis vitae nibh mauris. Duis nec sem sit
+amet ante dictum mattis. Suspendisse diam velit, maximus eget commodo
+at, faucibus et nisi. Ut a pellentesque eros, sit amet suscipit eros.
+Nunc tincidunt quis risus suscipit vestibulum. Quisque eu fringilla
+massa. \clearpage
+\end{abstract}
+
+
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+\lettrine[nindent=0em,lines=3]{T} his is my attempt at a full-fledged
+RMarkdown article template for use in my package \texttt{zealot}. I have
+set some defaults but have made sure to include a lot of options so that
+anyone who uses this template from the output format can customize it in
+various ways. Really, this whole endeavor is me learning how to
+construct a template for myself. Really really, I am procrastinating.
+Here is an in-text citation \autocite{campbell1960}. Now I am going to
+insert a thing that \textcite{campbell1960} said here just to check.
+
+orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Sed euismod nisi
+porta lorem. Nibh venenatis cras sed felis eget velit aliquet sagittis
+id. Ultrices tincidunt arcu non sodales. Dictum varius duis at
+consectetur. Dictum fusce ut placerat orci. Morbi tristique senectus et
+netus et malesuada fames. Arcu cursus vitae congue mauris rhoncus aenean
+vel elit. Semper quis lectus nulla at volutpat diam ut venenatis. Nulla
+pellentesque dignissim enim sit amet venenatis urna cursus eget.
+Suspendisse sed nisi lacus sed viverra tellus in hac habitasse.
+
+Urna nunc id cursus metus. Sit amet massa vitae tortor condimentum
+lacinia quis vel eros. Adipiscing commodo elit at imperdiet. Magna etiam
+tempor orci eu lobortis elementum nibh tellus molestie. Faucibus vitae
+aliquet nec ullamcorper sit. Egestas dui id ornare arcu odio ut sem
+nulla pharetra. Velit scelerisque in dictum non consectetur. Tincidunt
+tortor aliquam nulla facilisi cras. Augue neque gravida in fermentum et
+sollicitudin. Volutpat consequat mauris nunc congue nisi vitae. Quam
+pellentesque nec nam aliquam sem et. Justo nec ultrices dui sapien. Mi
+quis hendrerit dolor magna. Sagittis eu volutpat odio facilisis mauris
+sit. Viverra ipsum nunc aliquet bibendum enim facilisis gravida neque
+convallis. Diam quam nulla porttitor massa id neque aliquam.
+
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
+
+\hypertarget{results}{%
+\section{Results}\label{results}}
+
+\hypertarget{subsection}{%
+\subsection{Subsection}\label{subsection}}
+
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
+
+\hypertarget{subsection-1}{%
+\subsection{Subsection}\label{subsection-1}}
+
+\hypertarget{another-subsection}{%
+\subsection{Another Subsection}\label{another-subsection}}
+
+
+\printbibliography
+
+\end{document}
