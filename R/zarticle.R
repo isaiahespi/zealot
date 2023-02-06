@@ -1,20 +1,7 @@
-#' My Article template output format from the zealot package
-#'
-#' A template that I use for research articles and such. I tried to
-#' keep it basic but good-looking. It should work well in either a one or two
-#' column format, but we'll see.
-#'
-#' | FIELD  | DESCRIPTION |
-#' | ------ | ----------- |
-#' | `title` | Title of the article |
-#' | `subtitle`| Subtitle, if any|
-#' | `author` | the author of this article |
-#' | `affiliation` | author's affiliation
-#' | `date` | Put whatever date you'd like |
-#' | `email` | Author's email. |
-#' | `logo` | logo from institution. Not necessary but it's there |
+#' Zarticle template
 #'
 #'
+<<<<<<< HEAD
 #'
 #' @param logo File path to some logo file. The logo will be printed on
 #' the top left corner of the first page and the size will be adjusted to logo_height
@@ -29,10 +16,14 @@
 #'
 #' @importFrom rmarkdown pdf_document pandoc_variable_arg
 #' @import knitr
+=======
+#' @param ... Arguments to [`rmarkdown::pdf_document`].
+>>>>>>> 68f0abee1e0db71c1f585da2585915c8eb49dbf6
 #'
 #' @md
 #' @export
 #'
+<<<<<<< HEAD
 zarticle <- function(
     logo = NULL,
     logo_height = "2.2cm",
@@ -70,10 +61,14 @@ zarticle <- function(
     template = zarticle,
     keep_tex = TRUE,
     ...
+=======
+zarticle <- function(...) {
+  template <- system.file("rmarkdown", "templates", "zarticle", "resources",
+                          "zarticle.tex",
+                          package = "zealot")
+  rmarkdown::pdf_document(...,
+                          highlight = NULL,
+                          template = template
+>>>>>>> 68f0abee1e0db71c1f585da2585915c8eb49dbf6
   )
-
-  pre_pandoc <- config$pandoc$args
-  config$pandoc$args <- c(pre_pandoc, templ_args)
-
-  return(config)
 }

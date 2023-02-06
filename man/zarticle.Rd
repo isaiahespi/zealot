@@ -2,8 +2,9 @@
 % Please edit documentation in R/zarticle.R
 \name{zarticle}
 \alias{zarticle}
-\title{My Article template output format from the zealot package}
+\title{Zarticle template}
 \usage{
+<<<<<<< HEAD
 zarticle(logo = NULL, logo_height = "2.2cm", csl = NULL, ...)
 }
 \arguments{
@@ -17,21 +18,13 @@ to height and the default height is 2.2cm.}
 
 \item{...}{Arguments to \code{\link[rmarkdown:pdf_document]{rmarkdown::pdf_document}}. See
 ?rmarkdown::pdf_document for details.}
+=======
+zarticle(...)
+}
+\arguments{
+\item{...}{Arguments to \code{\link[rmarkdown:pdf_document]{rmarkdown::pdf_document}}.}
+>>>>>>> 68f0abee1e0db71c1f585da2585915c8eb49dbf6
 }
 \description{
-A template that I use for research articles and such. I tried to
-keep it basic but good-looking. It should work well in either a one or two
-column format, but we'll see.
-}
-\details{
-\tabular{ll}{
-   FIELD \tab DESCRIPTION \cr
-   \code{title} \tab Title of the article \cr
-   \code{subtitle} \tab Subtitle, if any \cr
-   \code{author} \tab the author of this article \cr
-   \code{affiliation} \tab author's affiliation \cr
-   \code{date} \tab Put whatever date you'd like \cr
-   \code{email} \tab Author's email. \cr
-   \code{logo} \tab logo from institution. Not necessary but it's there \cr
-}
+Zarticle template
 }
