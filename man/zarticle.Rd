@@ -2,34 +2,13 @@
 % Please edit documentation in R/zarticle.R
 \name{zarticle}
 \alias{zarticle}
-\title{My Article template output format from the zealot package}
+\title{Zarticle template}
 \usage{
-zarticle(logo = NULL, logo_height = "2.2cm", ...)
+zarticle(...)
 }
 \arguments{
-\item{logo}{File path to some logo file. The logo will be printed on
-the top left corner of the first page and the size will be adjusted to logo_height}
-
-\item{logo_height}{Height of the logo image. This logo image will be scaled
-to height and the default height is 2.2cm.}
-
-\item{...}{Arguments to \code{\link[rmarkdown:pdf_document]{rmarkdown::pdf_document}}. See
-?rmarkdown::pdf_document for details.}
+\item{...}{Arguments to \code{\link[rmarkdown:pdf_document]{rmarkdown::pdf_document}}.}
 }
 \description{
-A template that I use for research articles and such. I tried to
-keep it basic but good-looking. It should work well in either a one or two
-column format, but we'll see.
-}
-\details{
-\tabular{ll}{
-   FIELD \tab DESCRIPTION \cr
-   \code{title} \tab Title of the article \cr
-   \code{subtitle} \tab Subtitle, if any \cr
-   \code{author} \tab the author of this article \cr
-   \code{affiliation} \tab author's affiliation \cr
-   \code{date} \tab Put whatever date you'd like \cr
-   \code{email} \tab Author's email. \cr
-   \code{logo} \tab logo from institution. Not necessary but it's there \cr
-}
+Zarticle template
 }

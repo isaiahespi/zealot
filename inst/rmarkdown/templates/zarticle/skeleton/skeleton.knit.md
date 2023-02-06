@@ -1,10 +1,6 @@
 ---
-output: 
+output:
   zealot::zarticle:
-    logo: umd_logo.png
-    logo_height: "2.2cm"
-    dev: cairo_pdf
-    citation_package: biblatex
 title: "Article Title"
 subtitle: "Subtitle"
 thanks: "Thanks to all the important people. Replication files are available on request."
@@ -12,34 +8,26 @@ author:
   - name: "Author Name"
   - affiliation: "University of Someplace"
 email: your.email@address.edu
-date: "`r format(Sys.time(), '%B %d, %Y')`"
+date: "February 03, 2023"
 biblio-style: apsr
 csl: american-political-science-association.csl
 bibliography: sample.bib
 abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet libero justo. Pellentesque eget nibh ex. Aliquam tincidunt egestas lectus id ullamcorper. Proin tellus orci, posuere sed cursus at, bibendum ac odio. Nam consequat non ante eget aliquam. Nulla facilisis tincidunt elit. Nunc hendrerit pellentesque quam, eu imperdiet ipsum porttitor ut. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse potenti. Duis vitae nibh mauris. Duis nec sem sit amet ante dictum mattis. Suspendisse diam velit, maximus eget commodo at, faucibus et nisi. Ut a pellentesque eros, sit amet suscipit eros. Nunc tincidunt quis risus suscipit vestibulum. Quisque eu fringilla massa."
-fontfamily: mathpazo
-mainfont: Palatino
+mainfont: Times New Roman
 fontsize: 11pt
-lettrine: true # The lettrine is the first enlarged letter at the beginning of the text
 classoption: twocolumn #alt: onecolumn.
 colorlinks: true
 linkcolor: blue
 urlcolor: blue
 citecolor: blue
 endnotes: true
-header-includes:
-  - \linespread{1.05}
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, tidy = TRUE)
 
-
-```
 
 # Introduction
 
-\lettrine[nindent=0em,lines=3]{T} his is my attempt at a full-fledged RMarkdown article template for use in my package `zealot`. I have set some defaults but have made sure to include a lot of options so that anyone who uses this template from the output format can customize it in various ways. Really, this whole endeavor is me learning how to construct a template for myself. Really really, I am procrastinating. Here is an in-text citation [@campbell1960]. Now I am going to insert a thing that @campbell1960 said here just to check.
+This is my attempt at a full-fledged RMarkdown article template for use in my package `zealot`. I have set some defaults but have made sure to include a lot of options so that anyone who uses this template from the output format can customize it in various ways. Really, this whole endeavor is me learning how to construct a template for myself. Really really, I am procrastinating. Here is an in-text citation [@campbell1960]. Now I am going to insert a thing that @campbell1960 said here just to check.
 
 orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed euismod nisi porta lorem. Nibh venenatis cras sed felis eget velit aliquet sagittis id. Ultrices tincidunt arcu non sodales. Dictum varius duis at consectetur. Dictum fusce ut placerat orci. Morbi tristique senectus et netus et malesuada fames. Arcu cursus vitae congue mauris rhoncus aenean vel elit. Semper quis lectus nulla at volutpat diam ut venenatis. Nulla pellentesque dignissim enim sit amet venenatis urna cursus eget. Suspendisse sed nisi lacus sed viverra tellus in hac habitasse.
 
@@ -72,3 +60,5 @@ Urna nunc id cursus metus. Sit amet massa vitae tortor condimentum lacinia quis 
 
 ## Another Subsection
 
+
+# References
