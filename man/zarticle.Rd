@@ -4,26 +4,11 @@
 \alias{zarticle}
 \title{Zarticle template}
 \usage{
-<<<<<<< HEAD
-zarticle(logo = NULL, logo_height = "2.2cm", csl = NULL, ...)
-}
-\arguments{
-\item{logo}{File path to some logo file. The logo will be printed on
-the top left corner of the first page and the size will be adjusted to logo_height}
-
-\item{logo_height}{Height of the logo image. This logo image will be scaled
-to height and the default height is 2.2cm.}
-
-\item{csl}{specify citation-style-language file to use}
-
-\item{...}{Arguments to \code{\link[rmarkdown:pdf_document]{rmarkdown::pdf_document}}. See
-?rmarkdown::pdf_document for details.}
-=======
 zarticle(...)
 }
 \arguments{
-\item{...}{Arguments to \code{\link[rmarkdown:pdf_document]{rmarkdown::pdf_document}}.}
->>>>>>> 68f0abee1e0db71c1f585da2585915c8eb49dbf6
+\item{...}{Arguments to \code{\link[rmarkdown:pdf_document]{rmarkdown::pdf_document}}. See
+?rmarkdown::pdf_document for details.}
 }
 \description{
 Zarticle template

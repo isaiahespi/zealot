@@ -1,14 +1,8 @@
 ---
 output:
   zealot::zarticle:
-<<<<<<< HEAD:inst/rmarkdown/templates/z-article/skeleton/skeleton.Rmd
-    logo: umd_logo.png
-    logo_height: "2.2cm"
     dev: cairo_pdf
-    citation_package: biblatex
-    latex_engine: xelatex
-=======
->>>>>>> 68f0abee1e0db71c1f585da2585915c8eb49dbf6:inst/rmarkdown/templates/zarticle/skeleton/skeleton.Rmd
+    keep_tex: true
 title: "Article Title"
 subtitle: "Subtitle"
 thanks: "Thanks to all the important people. Replication files are available on request."
@@ -17,35 +11,19 @@ author:
   - affiliation: "University of Someplace"
 email: your.email@address.edu
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-csl: american-political-science-association.csl
-bibliography: sample.bib
 abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet libero justo. Pellentesque eget nibh ex. Aliquam tincidunt egestas lectus id ullamcorper. Proin tellus orci, posuere sed cursus at, bibendum ac odio. Nam consequat non ante eget aliquam. Nulla facilisis tincidunt elit. Nunc hendrerit pellentesque quam, eu imperdiet ipsum porttitor ut. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse potenti. Duis vitae nibh mauris. Duis nec sem sit amet ante dictum mattis. Suspendisse diam velit, maximus eget commodo at, faucibus et nisi. Ut a pellentesque eros, sit amet suscipit eros. Nunc tincidunt quis risus suscipit vestibulum. Quisque eu fringilla massa."
-<<<<<<< HEAD:inst/rmarkdown/templates/z-article/skeleton/skeleton.Rmd
-fontfamily: mathpazo
-=======
-mainfont: Times New Roman
->>>>>>> 68f0abee1e0db71c1f585da2585915c8eb49dbf6:inst/rmarkdown/templates/zarticle/skeleton/skeleton.Rmd
 fontsize: 11pt
-classoption: twocolumn #alt: onecolumn.
-colorlinks: true
-linkcolor: blue
-urlcolor: blue
-citecolor: blue
-endnotes: true
+highlight: "default"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-<<<<<<< HEAD:inst/rmarkdown/templates/z-article/skeleton/skeleton.Rmd
-
-=======
->>>>>>> 68f0abee1e0db71c1f585da2585915c8eb49dbf6:inst/rmarkdown/templates/zarticle/skeleton/skeleton.Rmd
 
 ```
 
 # Introduction
 
-This is my attempt at a full-fledged RMarkdown article template for use in my package `zealot`. I have set some defaults but have made sure to include a lot of options so that anyone who uses this template from the output format can customize it in various ways. Really, this whole endeavor is me learning how to construct a template for myself. Really really, I am procrastinating. Here is an in-text citation [@campbell1960]. Now I am going to insert a thing that @campbell1960 said here just to check.
+This is my attempt at a full-fledged RMarkdown article template for use in my package zealot. I have set some defaults but have made sure to include a lot of options so that anyone who uses this template from the output format can customize it in various ways. Really, this whole endeavor is me learning how to construct a template for myself. Really really, I am procrastinating. Here is an in-text citation [@campbell1960]. Now I am going to insert a thing that @campbell1960 said here just to check.
 
 orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed euismod nisi porta lorem. Nibh venenatis cras sed felis eget velit aliquet sagittis id. Ultrices tincidunt arcu non sodales. Dictum varius duis at consectetur. Dictum fusce ut placerat orci. Morbi tristique senectus et netus et malesuada fames. Arcu cursus vitae congue mauris rhoncus aenean vel elit. Semper quis lectus nulla at volutpat diam ut venenatis. Nulla pellentesque dignissim enim sit amet venenatis urna cursus eget. Suspendisse sed nisi lacus sed viverra tellus in hac habitasse.
 

@@ -3,5 +3,8 @@
 export(zarticle)
 export(zsyllabus)
 import(knitr)
+importFrom(rmarkdown,knitr_options)
+importFrom(rmarkdown,output_format)
+importFrom(rmarkdown,pandoc_options)
 importFrom(rmarkdown,pandoc_variable_arg)
 importFrom(rmarkdown,pdf_document)

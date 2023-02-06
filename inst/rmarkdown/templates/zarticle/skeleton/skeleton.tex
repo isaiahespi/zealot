@@ -1,49 +1,10 @@
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
-\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
-<<<<<<< HEAD:inst/rmarkdown/templates/z-article/skeleton/skeleton.tex
-11pt
-twocolumn
-]{article}
-
-\usepackage[]{mathpazo}
-
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra, xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-
-\fi
-
-
-
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-\usepackage[hmarginratio=1:1, top=32mm, columnsep=20pt, includeheadfoot]{geometry}
-
-=======
   11pt,
-  twocolumn]{article}
+]{article}
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
 \ifPDFTeX
@@ -58,7 +19,6 @@ twocolumn
 \usepackage{lmodern}
 \ifPDFTeX\else
   % xetex/luatex font selection
-  \setmainfont[]{Times New Roman}
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -66,7 +26,6 @@ twocolumn
   \usepackage[]{microtype}
   \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
->>>>>>> 68f0abee1e0db71c1f585da2585915c8eb49dbf6:inst/rmarkdown/templates/zarticle/skeleton/skeleton.tex
 \makeatletter
 \@ifundefined{KOMAClassName}{% if non-KOMA class
   \IfFileExists{parskip.sty}{%
@@ -77,271 +36,22 @@ twocolumn
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
-<<<<<<< HEAD:inst/rmarkdown/templates/z-article/skeleton/skeleton.tex
-
-
-\usepackage{xcolor}
-
-\makeatletter
-\@ifpackageloaded{hyperref}{}{%
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-}
-\@ifpackageloaded{color}{
-    \PassOptionsToPackage{usenames,dvipsnames}{color}
-}{%
-    \usepackage[usenames,dvipsnames]{color}
-}
-\makeatother
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={Author Name () and  (University of Someplace)},
-            pdftitle={Article Title: Subtitle},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=blue,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\usepackage[]{biblatex}
-\addbibresource{sample.bib}
-
-
-
-
-
-
-
-% Set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
-
-
-
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-
-
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-
-
-
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
-
-=======
 \usepackage{xcolor}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newlength{\cslentryspacingunit} % times entry-spacing
-\setlength{\cslentryspacingunit}{\parskip}
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1
-  \let\oldpar\par
-  \def\par{\hangindent=\cslhangindent\oldpar}
-  \fi
-  % set entry spacing
-  \setlength{\parskip}{#2\cslentryspacingunit}
- }%
- {}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
->>>>>>> 68f0abee1e0db71c1f585da2585915c8eb49dbf6:inst/rmarkdown/templates/zarticle/skeleton/skeleton.tex
 \hypersetup{
   pdftitle={Article Title},
-  colorlinks=true,
-  linkcolor={blue},
-  filecolor={Maroon},
-  citecolor={blue},
-  urlcolor={blue},
+  hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
-<<<<<<< HEAD:inst/rmarkdown/templates/z-article/skeleton/skeleton.tex
-
-
-
-
-
-
-%% --------- above is almost identical with default rmarkdown-------------------
-%-------------------------------------------------------------------------------
-% TITLE SECTION
-%-------------------------------------------------------------------------------
-
-%%% Change title format to be more compact
-\usepackage{titling}
-
-
-\setlength{\droptitle}{-5\baselineskip} % Move the title up
-% alternatively
-% \setlength{\droptitle}{-2em}
-
-% Set up for small logo in top corner of document
-% alternative is flushright
-\pretitle{
-\begin{flushleft}
-\includegraphics[height=2.2cm, keepaspectratio]{umd_logo.png}
-\end{flushleft}
-\setlength{\droptitle}{-5\baselineskip} % Move the title up
-\begin{center}\huge\bfseries % Article title formatting
-}
-
-\posttitle{\end{center}} % Article title closing formatting
-
-\title{Article Title
-  % \pretitle{\vspace{\droptitle}}
-\usepackage{etoolbox}
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}}
-\makeatother
-\subtitle{Subtitle}\thanks{Thanks to all the important people.
-Replication files are available on request.}
-
-
-  \author{Author Name () \and
-
-  
-   (University of Someplace)
-
-  \thanks{Thanks to all the important people. Replication files are
-available on request.}
-
-
-  \email{\href{\href{mailto:your.email@address.edu}{\nolinkurl{your.email@address.edu}}}{\href{mailto:your.email@address.edu}{\nolinkurl{your.email@address.edu}}} \\[1ex]
-  % \preauthor{\centering\large\emph}
-  % \postauthor{\par}
-  % \preauthor{}\postauthor{}
-
-  \predate{\par\begin{center}\large\vskip -1em}
-  \postauthor{\end{center}}
-  \date{December 15, 2022}
-  % \predate{}\postdate{}
-
-
-
-% add an option for endnotes ---
-
-\usepackage{endnotes}
-\renewcommand{\enotesize}{\normalsize}
-\let\footnote=\endnote
-
-\makeatletter
-\def\@seccntformat#1{\llap{\csname the#1\endcsname \hspace{.075 in}}}
-\makeatother
-
-% % suppress chapter in section numbering
-% \renewcommand*\thesection{\arabic{section}}
-
-% spacing of bulleted lists
-\usepackage{enumitem} %control spacing of enumerated items
-\setlist[itemize]{noitemsep, topsep=0pt}
-
-\usepackage{abstract} % Allows abstract customization
-% Set the "Abstract" text to bold
-\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
-\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
-
-
-\newlength\tbspace
-\setlength\tbspace{.25in}
-
-% units.
-%\usepackage{units}
-
-
-\def\tightlist{}
-
-
-%-------------------------------------------------------------------------------
-%% document formatting
-%-------------------------------------------------------------------------------
-
-
- % colors for tables and text
-\usepackage{ragged2e} % justifying text
-\usepackage{setspace} % spacing commands, automatically makes captions single-spaced
-%  \setstretch{1.2} \frenchspacing
-\usepackage{lastpage} % access number of last page for numbering in margin
-
-%% fonts setup
-\usepackage{gensymb} %degree symbol
-\usepackage{array}
-\usepackage{multirow}
-\usepackage{wrapfig}
-\usepackage{float}
-\usepackage{colortbl}
-\usepackage{pdflscape}
-\usepackage{tabu}
-\usepackage{threeparttable}
-\usepackage{threeparttablex}
-\usepackage{makecell}
-\usepackage[hang]{footmisc}
-\usepackage{booktabs}
-
-
-
-\usepackage{titlesec} % Allows customization of titles
-% removes numbered sections
-\titleformat*{\section}{\sc \bf \large \color[rgb]{0,0,0}}
-\titleformat*{\subsection}{\bf \large}
-\titleformat*{\subsubsection}{\bf \normalsize}
-\titlespacing\section{0pt}{8pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsection{0pt}{6pt plus 2pt minus 2pt}{-2pt plus 2pt minus 2pt}
-\titlespacing\subsubsection{0pt}{2pt plus 2pt minus 2pt}{-3pt plus 2pt minus 2pt}
-
-\robustify\tnote
-
-% table/figure captions (titles and legends)
-
-% \usepackage{caption}
-% % otherwise just
-% \captionsetup{font=small, labelfont={sc, bf}}
-% 
-% table/figure captions (titles and legends)
-\usepackage[singlelinecheck=false]{caption} % left justify table captions
-\captionsetup{font={color=black, sf}, skip=4pt, size=small, labelfont=sf, labelsep = period} % color and spacing between caption and table proper, updated
-
-\makeatletter
-\let\runtitle\@title
-\makeatother
-
-
-=======
 \title{Article Title\thanks{Thanks to all the important people.
 Replication files are available on request.}}
 \usepackage{etoolbox}
@@ -352,185 +62,10 @@ Replication files are available on request.}}
 \makeatother
 \subtitle{Subtitle}
 \author{true \and true}
-\date{February 03, 2023}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\usepackage{blindtext} % Package to generate dummy text throughout this template
-
-\usepackage[sc]{mathpazo} % Use the Palatino font
-\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
-\linespread{1.05} % Line spacing - Palatino needs more space between lines
-\usepackage{microtype} % Slightly tweak font spacing for aesthetics
-
-\usepackage[english]{babel} % Language hyphenation and typographical rules
-
-\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
-\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
-\usepackage{booktabs} % Horizontal rules in tables
-
-\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
-
-\usepackage{enumitem} % Customized lists
-\setlist[itemize]{noitemsep} % Make itemize lists more compact
-
-\usepackage{abstract} % Allows abstract customization
-\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
-\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
-
-\usepackage{titlesec} % Allows customization of titles
-\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
-\renewcommand\thesubsection{\roman{subsection}} % roman numerals for subsections
-\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
-\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
->>>>>>> 68f0abee1e0db71c1f585da2585915c8eb49dbf6:inst/rmarkdown/templates/zarticle/skeleton/skeleton.tex
-
-\usepackage{fancyhdr} % Headers and footers
-\pagestyle{fancy} % All pages have headers and footers
-\fancyhead{} % Blank out the default header
-\fancyfoot{} % Blank out the default footer
-<<<<<<< HEAD:inst/rmarkdown/templates/z-article/skeleton/skeleton.tex
-\fancyhead[R]{\author{truetrue}} % Custom header text
-\fancyfoot[RO,LE]{\thepage} % Custom footer text
-
-% \fancypagestyle{firststyle}
-% {
-%    \fancyhf{}
-%    %    \renewcommand{\footrulewidth}{0pt}
-%    % }
-
-\setlength\parindent{0pt}
-
-
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-
-
-\usepackage{tikz}
-
-\newcommand{\shrug}[1][]{%
-\begin{tikzpicture}[baseline,x=0.8\ht\strutbox,y=0.8\ht\strutbox,line width=0.125ex,#1]
-\def\arm{(-2.5,0.95) to (-2,0.95) (-1.9,1) to (-1.5,0) (-1.35,0) to (-0.8,0)};
-\draw \arm;
-\draw[xscale=-1] \arm;
-\def\headpart{(0.6,0) arc[start angle=-40, end angle=40,x radius=0.6,y radius=0.8]};
-\draw \headpart;
-\draw[xscale=-1] \headpart;
-\def\eye{(-0.075,0.15) .. controls (0.02,0) .. (0.075,-0.15)};
-\draw[shift={(-0.3,0.8)}] \eye;
-\draw[shift={(0,0.85)}] \eye;
-% draw mouth
-\draw (-0.1,0.2) to [out=15,in=-100] (0.4,0.95);
-\end{tikzpicture}}
-
-
-
-
-\linespread{1.05}
-
-%-------------------------------------------------------------------------------
-% Begin Document
-%-------------------------------------------------------------------------------
+\date{February 06, 2023}
 
 \begin{document}
-
 \maketitle
-
-
-=======
-\fancyhead[C]{Article Title $\bullet$ February 03,
-2023 $\bullet$ truetrue} % Custom header text
-\fancyfoot[R]{\thepage} % Custom footer text
-
-\usepackage{titling} % Customizing the title section
-
-\usepackage[backend=biber,style=authoryear,dashed=false,uniquename=false]{biblatex}
- %using biblatex, gotta run pdfLaTeX, then biber, then pdfLaTeX again
-\addbibresource{sample.bib} %or whatever .bib is being used
-
-
-
-\ifluatex
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
-
-
-\usepackage{hyperref} % For hyperlinks in the PDF
-
-\makeatletter
-\@ifpackageloaded{hyperref}{}{%
-\ifxetex
-  \PassOptionsToPackage{hyphens}{url}\usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \PassOptionsToPackage{hyphens}{url}\usepackage[draft,unicode=true]{hyperref}
-\fi
-}
-
-\@ifpackageloaded{color}{
-    \PassOptionsToPackage{usenames,dvipsnames}{color}
-}{%
-    \usepackage[usenames,dvipsnames]{color}
-}
-
-\makeatother
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={Author Name () and  (University of Someplace)},
-             pdfkeywords = {},
-            pdftitle={Article Title: Subtitle},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=blue,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-
-
-\usepackage{endnotes}
-\renewcommand{\enotesize}{\normalsize}
-\let\footnote=\endnote
-
-
-
-%----------------------------------------------------------------------------------------
-%	TITLE SECTION
-%----------------------------------------------------------------------------------------
-\setlength{\droptitle}{-5\baselineskip} % Move the title up
-
-\pretitle{\begin{center}\Huge\bfseries} % Article title formatting
-\posttitle{\end{center}} % Article title closing formatting
-\title{Article Title\thanks{Thanks to all the important people.
-Replication files are available on request.}}
-\providecommand{\subtitle}[1]{}
-\subtitle{Subtitle}
- % Article title
-\author{%
-\textsc{}\thanks{Thanks to all the important people. Replication files
-are available on request.} \\[1ex] % Your name
-\normalsize  \\ % Your institution
-\normalsize \href{mailto:\href{mailto:your.email@address.edu}{\nolinkurl{your.email@address.edu}}}{\href{mailto:your.email@address.edu}{\nolinkurl{your.email@address.edu}}} % Your email address
-%\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
-%\textsc{Jane Smith}\thanks{Corresponding author} \\[1ex] % Second author's name
-%\normalsize University of Utah \\ % Second author's institution
-%\normalsize \href{mailto:jane@smith.com}{jane@smith.com} % Second author's email address
-}
-\date{February 03, 2023} % Leave empty to omit a date
-\renewcommand{\maketitlehookd}{%
->>>>>>> 68f0abee1e0db71c1f585da2585915c8eb49dbf6:inst/rmarkdown/templates/zarticle/skeleton/skeleton.tex
 \begin{abstract}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet
 libero justo. Pellentesque eget nibh ex. Aliquam tincidunt egestas
@@ -542,51 +77,20 @@ faucibus. Suspendisse potenti. Duis vitae nibh mauris. Duis nec sem sit
 amet ante dictum mattis. Suspendisse diam velit, maximus eget commodo
 at, faucibus et nisi. Ut a pellentesque eros, sit amet suscipit eros.
 Nunc tincidunt quis risus suscipit vestibulum. Quisque eu fringilla
-<<<<<<< HEAD:inst/rmarkdown/templates/z-article/skeleton/skeleton.tex
-massa. \clearpage
-\end{abstract}
-=======
 massa.
 \end{abstract}
-}
-
-
-
-\begin{document}
-
-\maketitle
-
-%----------------------------------------------------------------------------------------
-
-
-
-
->>>>>>> 68f0abee1e0db71c1f585da2585915c8eb49dbf6:inst/rmarkdown/templates/zarticle/skeleton/skeleton.tex
-
-
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-<<<<<<< HEAD:inst/rmarkdown/templates/z-article/skeleton/skeleton.tex
-\lettrine[nindent=0em,lines=3]{T} his is my attempt at a full-fledged
-RMarkdown article template for use in my package \texttt{zealot}. I have
-set some defaults but have made sure to include a lot of options so that
-anyone who uses this template from the output format can customize it in
-various ways. Really, this whole endeavor is me learning how to
-construct a template for myself. Really really, I am procrastinating.
-Here is an in-text citation \autocite{campbell1960}. Now I am going to
-insert a thing that \textcite{campbell1960} said here just to check.
-=======
 This is my attempt at a full-fledged RMarkdown article template for use
-in my package \texttt{zealot}. I have set some defaults but have made
-sure to include a lot of options so that anyone who uses this template
-from the output format can customize it in various ways. Really, this
-whole endeavor is me learning how to construct a template for myself.
-Really really, I am procrastinating. Here is an in-text citation
-(Campbell et al. 1960). Now I am going to insert a thing that Campbell
-et al. (1960) said here just to check.
->>>>>>> 68f0abee1e0db71c1f585da2585915c8eb49dbf6:inst/rmarkdown/templates/zarticle/skeleton/skeleton.tex
+in my package zealot. I have set some defaults but have made sure to
+include a lot of options so that anyone who uses this template from the
+output format can customize it in various ways. Really, this whole
+endeavor is me learning how to construct a template for myself. Really
+really, I am procrastinating. Here is an in-text citation
+{[}@campbell1960{]}. Now I am going to insert a thing that @campbell1960
+said here just to check.
 
 orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Sed euismod nisi
@@ -628,21 +132,7 @@ convallis. Diam quam nulla porttitor massa id neque aliquam.
 \hypertarget{another-subsection}{%
 \subsection{Another Subsection}\label{another-subsection}}
 
-<<<<<<< HEAD:inst/rmarkdown/templates/z-article/skeleton/skeleton.tex
-
-\printbibliography
-=======
 \hypertarget{references}{%
-\section*{References}\label{references}}
-\addcontentsline{toc}{section}{References}
-
-\hypertarget{refs}{}
-\begin{CSLReferences}{1}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-campbell1960}{}}%
-Campbell, Angus, Philip E. Converse, Warren E. Miller, and Donald E.
-Stokes. 1960. \emph{The {American} Voter}. {New York}: {Wiley}.
-
-\end{CSLReferences}
->>>>>>> 68f0abee1e0db71c1f585da2585915c8eb49dbf6:inst/rmarkdown/templates/zarticle/skeleton/skeleton.tex
+\section{References}\label{references}}
 
 \end{document}
