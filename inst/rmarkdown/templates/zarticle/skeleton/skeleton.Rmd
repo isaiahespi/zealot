@@ -3,17 +3,20 @@ output:
   zealot::zarticle:
     dev: cairo_pdf
     keep_tex: true
+    latex_engine: xelatex
 title: "Article Title"
 subtitle: "Subtitle"
 thanks: "Thanks to all the important people. Replication files are available on request."
 author:
   - name: "Author Name"
   - affiliation: "University of Someplace"
-email: your.email@address.edu
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet libero justo. Pellentesque eget nibh ex. Aliquam tincidunt egestas lectus id ullamcorper. Proin tellus orci, posuere sed cursus at, bibendum ac odio. Nam consequat non ante eget aliquam. Nulla facilisis tincidunt elit. Nunc hendrerit pellentesque quam, eu imperdiet ipsum porttitor ut. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse potenti. Duis vitae nibh mauris. Duis nec sem sit amet ante dictum mattis. Suspendisse diam velit, maximus eget commodo at, faucibus et nisi. Ut a pellentesque eros, sit amet suscipit eros. Nunc tincidunt quis risus suscipit vestibulum. Quisque eu fringilla massa."
 fontsize: 11pt
-highlight: "default"
+geometry: hmarginratio=1:1, top=32mm, columnsep=20pt
+classoption: 
+  - twocolumn
+  - twoside
 ---
 
 ```{r setup, include=FALSE}

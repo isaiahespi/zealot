@@ -14,7 +14,8 @@
 #'
 zarticle <- function(...){
   zarticle <- system.file("rmarkdown", "templates", "zarticle", "resources",
-                           "zarticle.tex", package = "zealot")
+                          "zarticle.tex",
+                          package = "zealot")
 
   # call the base pdf_document function
   config <- rmarkdown::pdf_document(

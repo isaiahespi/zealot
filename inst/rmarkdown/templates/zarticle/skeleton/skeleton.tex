@@ -4,7 +4,8 @@
 %
 \documentclass[
   11pt,
-]{article}
+  twocolumn,
+  twoside]{article}
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
 \ifPDFTeX
@@ -37,6 +38,7 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
+\usepackage[hmarginratio=1:1, top=32mm, columnsep=20pt]{geometry}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -64,12 +66,100 @@ Replication files are available on request.}}
 \author{true \and true}
 \date{February 06, 2023}
 
+%%------------------------------------------------------------------------------
+%% Everything above line is default pandoc latex
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+\renewcommand\thesubsection{\roman{subsection}} % roman numerals for subsections
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{Article Title \bullet February 06,
+2023 \bullet truetrue} % Custom header text
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+
+\usepackage{titling} % Customizing the title section (this is for \droptitle)
+
+\makeatletter
+\@ifpackageloaded{hyperref}{}{%
+\ifxetex
+  \PassOptionsToPackage{hyphens}{url}\usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \PassOptionsToPackage{hyphens}{url}\usepackage[draft,unicode=true]{hyperref}
+\fi
+}
+
+\@ifpackageloaded{color}{
+    \PassOptionsToPackage{usenames,dvipsnames}{color}
+}{%
+    \usepackage[usenames,dvipsnames]{color}
+}
+\makeatother
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Author Name () and  (University of Someplace)},
+             pdfkeywords = {},
+            pdftitle={Article Title: Subtitle},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+
+
+%-------------------------------------------------------------------------------
+%	TITLE SECTION
+%-------------------------------------------------------------------------------
+
+\makeatletter
+\def\@maketitle{%
+  \pretitle{\begin{center}\Huge\bfseries} % Article title formatting
+  \posttitle{\end{center}} % Article title closing formatting
+%  \null
+%  \vskip 2em%
+%  \begin{center}%
+  \let \footnote \thanks
+}
+%\fi
+\makeatother
+
+
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+
 \begin{document}
+
+{\setlength{\droptitle}{-4\baselineskip} % Move the title up
+
+\title{Article Title: Subtitle\thanks{Thanks to all the important
+people. Replication files are available on request.}  }
+
 \maketitle
+
+\author{\textsc{}},
+\normalsize{}
+
+\date{February 06, 2023}
+
 \begin{abstract}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet
-libero justo. Pellentesque eget nibh ex. Aliquam tincidunt egestas
-lectus id ullamcorper. Proin tellus orci, posuere sed cursus at,
+\noindent Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+sit amet libero justo. Pellentesque eget nibh ex. Aliquam tincidunt
+egestas lectus id ullamcorper. Proin tellus orci, posuere sed cursus at,
 bibendum ac odio. Nam consequat non ante eget aliquam. Nulla facilisis
 tincidunt elit. Nunc hendrerit pellentesque quam, eu imperdiet ipsum
 porttitor ut. Interdum et malesuada fames ac ante ipsum primis in
@@ -79,6 +169,11 @@ at, faucibus et nisi. Ut a pellentesque eros, sit amet suscipit eros.
 Nunc tincidunt quis risus suscipit vestibulum. Quisque eu fringilla
 massa.
 \end{abstract}
+
+}
+
+
+
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
