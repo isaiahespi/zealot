@@ -463,6 +463,9 @@ $endif$
 %%------------------------------------------------------------------------------
 %% Everything above line is default pandoc latex
 
+\usepackage{blindtext} % Package to generate dummy text throughout this template
+
+
 \usepackage{abstract} % Allows abstract customization
 \renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
 \renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
@@ -482,28 +485,19 @@ $endif$
 \fancyfoot[RO,LE]{\thepage} % Custom footer text
 
 
+\linespread{1.05}
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+
+
+
 \usepackage{titling} % Customizing the title section (this is for \droptitle)
 
-\makeatletter
-\@ifpackageloaded{hyperref}{}{%
-\ifxetex
-  \PassOptionsToPackage{hyphens}{url}\usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \PassOptionsToPackage{hyphens}{url}\usepackage[draft,unicode=true]{hyperref}
-\fi
-}
-
-\@ifpackageloaded{color}{
-    \PassOptionsToPackage{usenames,dvipsnames}{color}
-}{%
-    \usepackage[usenames,dvipsnames]{color}
-}
-\makeatother
 \hypersetup{breaklinks=true,
             bookmarks=true,
-            pdfauthor={$if(anonymous)$$else$$for(author)$$author.name$ ($author.affiliation$)$sep$ and $endfor$$endif$},
+            pdfauthor={$for(author)$$author.name$ ($author.affiliation$)$sep$ and $endfor$},
              pdfkeywords = {$if(keywords)$$keywords$$endif$},
             pdftitle={$title$$if(subtitle)$: $subtitle$$endif$},
             colorlinks=true,
@@ -514,56 +508,61 @@ $endif$
 \urlstyle{same}  % don't use monospace font for urls
 
 
+
+
 %-------------------------------------------------------------------------------
 %	TITLE SECTION
 %-------------------------------------------------------------------------------
 
-\makeatletter
-\def\@maketitle{%
-  \pretitle{\begin{center}\Huge\bfseries} % Article title formatting
-  \posttitle{\end{center}} % Article title closing formatting
-%  \null
-%  \vskip 2em%
-%  \begin{center}%
-  \let \footnote \thanks
+% \makeatletter
+% \def\@maketitle{%
+%
+% %  \null
+% %  \vskip 2em%
+% %  \begin{center}%
+%   \let \footnote \thanks
+% }
+% %\fi
+% \makeatother
+
+\setlength{\droptitle}{-4\baselineskip} % Move the title up
+
+
+\pretitle{\begin{center}\Huge\bfseries} % Article title formatting
+\posttitle{\end{center}} % Article title closing formatting
+\title{$title$$if(subtitle)$: $subtitle$$endif$}
+
+$for(author)$
+\author{%
+\textsc{$author.name$}$if(thanks)$\thanks{$thanks$} $endif$ \\ [1ex]
+\normalsize{$author.affiliation$} \\
+\normalsize{$email$}
 }
-%\fi
-\makeatother
+$endfor$
+
+\date{$date$}
+\renewcommand{\maketitlehookd}{%
+$if(abstract)$
+\begin{abstract}
+\vskip 8.5pt
+\noindent \abstracttextfont{$abstract$}
+\end{abstract}
+$endif$
+}
+
 
 
 %-------------------------------------------------------------------------------
 
 %-------------------------------------------------------------------------------
+
+
 
 \begin{document}
 
 $if(title)$
-{\setlength{\droptitle}{-4\baselineskip} % Move the title up
-
-\title{$title$$if(subtitle)$: $subtitle$$endif$$if(thanks)$\thanks{$thanks$} $endif$ }
-
 \maketitle
-
-$if(author)$
-\author{\textsc{$author.name$}},
-\normalsize{$author.affiliation$}
-$else$
-\textsc{$author$}
 $endif$
-
-\date{$date$}
-
-$if(abstract)$
-\begin{abstract}
-\noindent $abstract$
-\end{abstract}
-$endif$
-
-}
-
-$endif$
-
-
 
 $for(include-before)$
 $include-before$
