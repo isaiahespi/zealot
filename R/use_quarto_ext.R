@@ -5,6 +5,8 @@
 #' @param file_name Name of new qmd file and sub-directory to be created
 #' @param ext_name String indicating which extension to install
 #'
+#' @importFrom utils file.edit
+#'
 #' @return a message if extension was successfully copied over
 #' @export
 use_quarto_ext <- function(file_name = NULL,

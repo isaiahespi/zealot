@@ -12,7 +12,8 @@ URL: https://github.com/isaiahespi/zealot
 BugReports: https://github.com/isaiahespi/zealot/issues
 Imports: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    utils
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
