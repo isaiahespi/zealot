@@ -47,4 +47,11 @@ See the example below:
 
 ## Z-article
 
-Coming Soon
+There now is a basic working template for an academic article. It’s not
+much, and it’s still being tweaked, but I managed to create a working
+one formatted the way I want.
+
+This article is for PDF format only. It inherits all of the arguments
+from `rmarkdown::pdf_document()`. To use the template in RStudio, create
+a new R Markdown document from the RStudio menu
+`File -> New File -> R Markdown -> From Template`.

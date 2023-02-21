@@ -22,11 +22,11 @@ The goal of the `zealot` package is to be mine and allow me to use custom (or st
 templates and formats for use with RMarkdown in RStudio. Also to share. I've only managed to make one template for now, and it is just a syllabus. But it took a long time to get it the way I wanted it.
 
 Some templates I intend to construct next;
-- A basic article template
-- A CV template
-- A template for fiction novels or stories or whatever (it's not all academic, ew)
-- Tutorials in R
-- Website/Blog
+  - A basic article template
+  - A CV template
+  - A template for fiction novels or stories or whatever (it's not all academic, ew)
+  - Tutorials in R
+  - Website/Blog
 
 ## Installation
 
@@ -50,4 +50,9 @@ See the example below:
 
 ## Z-article
 
-Coming Soon \dots
+There now is a basic working template for an academic article. It's not much, and it's still being tweaked, but I managed to create a working one formatted the way I want. 
+
+This article is for PDF format only. It inherits all of the arguments from `rmarkdown::pdf_document()`. 
+To use the template in RStudio, create a new R Markdown document from the RStudio menu `File -> New File -> R Markdown -> From Template`.
+
+
